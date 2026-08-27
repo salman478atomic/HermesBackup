@@ -1,15 +1,9 @@
 {
-  "timestamp": "2026-08-27T10:15:39+00:00",
+  "timestamp": "2026-08-27T11:09:33+00:00",
   "hostname": "db38f47b0420",
   "hermes_version": "unknown",
   "backup_items": [
-    "memories",
-    "config.yaml",
-    "SOUL.md",
-    "skills",
-    "cron_executions.db",
-    "state.db",
-    "sessions",
-    "kanban.db"
+    "memories", "config.yaml", "SOUL.md", "skills",
+    "cron_executions.db", "state.db", "sessions", "kanban.db"
   ]
 }
