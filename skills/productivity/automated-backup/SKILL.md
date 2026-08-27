@@ -101,6 +101,57 @@ git config credential.helper store
 
 The user may say "only backup if we did work" — in that case, the cron prompt should check `git status` first and skip if clean. This avoids noise commits.
 
+## Hermes Full-Data Backup (Disaster Recovery)
+
+When the user faces environment loss (e.g. Railway trial ending, server wipe), back up the **entire Hermes state** — not just workspace files — to a GitHub repo so everything can be restored on redeployment.
+
+### What to Back Up
+
+- `~/.hermes/memories/` — MEMORY.md, USER.md (agent memory + user profile)
+- `~/.hermes/skills/` — all installed skills (SKILL.md files + references/templates/scripts)
+- `~/.hermes/config.yaml` — full configuration
+- `~/.hermes/SOUL.md` — agent identity/personality
+- `~/.hermes/cron/executions.db` — cron job definitions and history
+- `~/.hermes/state.db` — session database
+- `~/.hermes/sessions/` — session logs
+- `~/.hermes/kanban.db` — kanban board data
+
+### Backup Script Pattern
+
+Create a bash script (e.g. `/data/workspace/hermes-backup.sh`) that:
+
+1. Creates a temp directory
+2. Copies all items listed above into it
+3. Generates `backup_info.json` with timestamp and metadata
+4. Git-inits, commits, and force-pushes to the backup repo
+
+**Important**: Use `git push -f` (force push) since this is a single-branch backup repo — each backup replaces the previous state entirely.
+
+### Cron Job for Auto-Backup
+
+```
+cronjob action=create
+  schedule="every 12h"
+  prompt="Run the backup script at /data/workspace/hermes-backup.sh to back up all Hermes data to GitHub. Just execute the script and report the result. If it fails, explain the error."
+  deliver="local"
+  name="hermes-auto-backup"
+```
+
+Use `deliver="local"` for backup jobs — no need to notify the user every 12 hours unless something fails.
+
+### Restoration Steps
+
+When redeploying Hermes after data loss:
+
+1. Clone the backup repo
+2. Copy `memories/` back to `~/.hermes/memories/`
+3. Copy `skills/` back to `~/.hermes/skills/`
+4. Copy `config.yaml` and `SOUL.md` back to `~/.hermes/`
+5. Copy `state.db`, `cron_executions.db`, `kanban.db` back
+6. Restart Hermes gateway
+
+The user retains their GitHub token in chat history — ask them to provide it again on redeployment rather than storing it permanently in backup files.
+
 ## Example Cron Creation
 
 ```
