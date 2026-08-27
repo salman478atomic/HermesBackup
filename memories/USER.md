@@ -1,0 +1,1 @@
+User "S" prefers communication in Farsi (Persian). Respond in Farsi by default.
