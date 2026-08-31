@@ -1,0 +1,125 @@
+2026-08-31 17:47:17,965 WARNING hermes.security_audit: Security posture audit found 1 issue(s) — review your deployment:
+2026-08-31 17:47:17,966 WARNING hermes.security_audit:   [security 1/1] Running as ROOT. The agent's terminal/file tools execute with full root privileges — a single prompt-injection or exposed endpoint is a full host compromise. Run Hermes as an unprivileged user (or in a sandboxed terminal backend / container with a non-root user).
+2026-08-31 17:47:20,749 WARNING hermes_state: state.db (async_delegation): linked SQLite 3.46.1 is vulnerable to the WAL-reset corruption bug (https://sqlite.org/wal.html#walresetbug) — using journal_mode=DELETE instead of enabling WAL. Upgrade to SQLite 3.51.3+ (or backports 3.50.7 / 3.44.6); Hermes-managed installs can repair the embedded runtime with `hermes update`. See `hermes doctor`. This warning fires once per process per database.
+2026-08-31 17:47:20,798 WARNING hermes_state: state.db: linked SQLite 3.46.1 is vulnerable to the WAL-reset corruption bug (https://sqlite.org/wal.html#walresetbug) — using journal_mode=DELETE instead of enabling WAL. Upgrade to SQLite 3.51.3+ (or backports 3.50.7 / 3.44.6); Hermes-managed installs can repair the embedded runtime with `hermes update`. See `hermes doctor`. This warning fires once per process per database.
+2026-08-31 17:47:21,690 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Discovering Telegram API fallback IPs via DNS-over-HTTPS…
+2026-08-31 17:47:21,862 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Connecting to Telegram (attempt 1/8)…
+2026-08-31 17:47:33,797 WARNING hermes_state: state.db (delivery_ledger): linked SQLite 3.46.1 is vulnerable to the WAL-reset corruption bug (https://sqlite.org/wal.html#walresetbug) — using journal_mode=DELETE instead of enabling WAL. Upgrade to SQLite 3.51.3+ (or backports 3.50.7 / 3.44.6); Hermes-managed installs can repair the embedded runtime with `hermes update`. See `hermes doctor`. This warning fires once per process per database.
+2026-08-31 17:47:33,857 WARNING hermes_state: cron/executions.db: linked SQLite 3.46.1 is vulnerable to the WAL-reset corruption bug (https://sqlite.org/wal.html#walresetbug) — using journal_mode=DELETE instead of enabling WAL. Upgrade to SQLite 3.51.3+ (or backports 3.50.7 / 3.44.6); Hermes-managed installs can repair the embedded runtime with `hermes update`. See `hermes doctor`. This warning fires once per process per database.
+2026-08-31 17:47:38,920 WARNING hermes_state: kanban.db (kanban.db): linked SQLite 3.46.1 is vulnerable to the WAL-reset corruption bug (https://sqlite.org/wal.html#walresetbug) — using journal_mode=DELETE instead of enabling WAL. Upgrade to SQLite 3.51.3+ (or backports 3.50.7 / 3.44.6); Hermes-managed installs can repair the embedded runtime with `hermes update`. See `hermes doctor`. This warning fires once per process per database.
+2026-08-31 17:48:46,441 WARNING tools.registry: check_fn check_browser_back_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:47,175 WARNING tools.registry: check_fn _browser_cdp_check returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:47,932 WARNING tools.registry: check_fn check_browser_click_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:48,664 WARNING tools.registry: check_fn check_browser_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:49,341 WARNING tools.registry: check_fn _browser_dialog_check returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:49,348 WARNING tools.registry: check_fn is_browser_use_cli_mode returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:50,159 WARNING tools.registry: check_fn check_browser_navigate_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:50,921 WARNING tools.registry: check_fn check_browser_press_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:51,614 WARNING tools.registry: check_fn check_browser_scroll_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:52,301 WARNING tools.registry: check_fn check_browser_snapshot_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:53,002 WARNING tools.registry: check_fn check_browser_type_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:53,825 WARNING tools.registry: check_fn check_browser_vision_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:53,868 WARNING tools.registry: check_fn check_computer_use_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:53,872 WARNING tools.registry: check_fn check_image_generation_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:53,873 WARNING tools.registry: check_fn _check_kanban_mode returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:53,874 WARNING tools.registry: check_fn _check_kanban_orchestrator_mode returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:55,857 WARNING agent.auxiliary_client: Auxiliary client: PAID lane engaged for auxiliary task — OpenRouter fallback model 'google/gemini-3.6-flash' is not a :free SKU and may incur real spend. Set auxiliary.free_only: true to restrict auxiliary fallbacks to free models, or auxiliary.openrouter_model to a :free model.
+2026-08-31 17:48:55,860 WARNING agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 17:49:55.
+2026-08-31 17:48:55,867 WARNING agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-08-31 17:48:55,867 WARNING agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 17:49:55.
+2026-08-31 17:48:55,868 WARNING agent.auxiliary_client: resolve_provider_client: nous requested but Nous Portal not configured (run: hermes auth)
+2026-08-31 17:48:55,869 WARNING agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 17:49:55.
+2026-08-31 17:48:55,873 WARNING agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-08-31 17:48:55,874 WARNING agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 17:49:55.
+2026-08-31 17:48:55,874 WARNING agent.auxiliary_client: resolve_provider_client: nous requested but Nous Portal not configured (run: hermes auth)
+2026-08-31 17:48:55,874 WARNING tools.registry: check_fn check_vision_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:48:57,036 WARNING agent.auxiliary_client: OPENAI_BASE_URL is set (https://9router-production-2cd61.up.railway.app/v1) but model.provider is 'openrouter'. Auxiliary clients may route to the wrong endpoint. Run: hermes model to reconfigure, or remove OPENAI_BASE_URL from ~/.hermes/.env
+2026-08-31 17:48:57,733 WARNING agent.auxiliary_client: Auxiliary auto-detect: no provider available (tried: openrouter (unhealthy), nous (unhealthy), local/custom, api-key). Compression, summarization, and memory flush will not work. Set OPENROUTER_API_KEY or configure a local model in config.yaml.
+2026-08-31 17:48:58,002 WARNING agent.auxiliary_client: Auxiliary auto-detect: no provider available (tried: openrouter (unhealthy), nous (unhealthy), local/custom, api-key). Compression, summarization, and memory flush will not work. Set OPENROUTER_API_KEY or configure a local model in config.yaml.
+2026-08-31 17:48:58,002 WARNING agent.title_generator: Title generation failed: No LLM provider configured for task=title_generation provider=auto. Run: hermes setup
+2026-08-31 17:48:58,117 ERROR agent.chat_completion_helpers: Streaming failed before delivery: Error code: 401 - {'error': {'message': 'Missing Authentication header', 'code': 401}}
+Traceback (most recent call last):
+  File "/opt/hermes-agent/agent/chat_completion_helpers.py", line 4775, in _call
+    result["response"] = _call_chat_completions(stream_attempt_id)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/chat_completion_helpers.py", line 4047, in _call_chat_completions
+    relay_llm.stream(
+  File "/opt/hermes-agent/agent/relay_llm.py", line 395, in stream
+    return ManagedLlmStream(
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/relay_llm.py", line 478, in __init__
+    raw_stream = stream_factory(request)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/chat_completion_helpers.py", line 3984, in _open_stream
+    return request_client.chat.completions.create(**stream_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 1204, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1297, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1070, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Missing Authentication header', 'code': 401}}
+2026-08-31 17:48:58,155 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 1/3) error_type=AuthenticationError thread=hermes-gateway_0:140246162650816 provider=openrouter base_url=https://openrouter.ai/api/v1 model=z-ai/glm-5.2 summary=HTTP 401: Missing Authentication header
+2026-08-31 17:48:58,276 ERROR [20260831_174838_72928275] agent.conversation_loop: Non-retryable client error: Error code: 401 - {'error': {'message': 'Missing Authentication header', 'code': 401}}
+2026-08-31 17:49:18,465 WARNING agent.model_metadata: Could not determine context length for model 'Seekai0731' (base_url=https://9router-production-2cd61.up.railway.app/v1) — falling back to 256,000 tokens. Set model.context_length in config.yaml to override.
+2026-08-31 17:58:56,820 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_back_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:58:57,537 WARNING [20260831_174838_72928275] tools.registry: check_fn _browser_cdp_check returned False; dependent tools will be unavailable this turn
+2026-08-31 17:58:58,226 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_click_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:58:58,966 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:58:59,687 WARNING [20260831_174838_72928275] tools.registry: check_fn _browser_dialog_check returned False; dependent tools will be unavailable this turn
+2026-08-31 17:58:59,690 WARNING [20260831_174838_72928275] tools.registry: check_fn is_browser_use_cli_mode returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:00,408 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_navigate_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:01,174 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_press_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:01,977 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_scroll_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:02,750 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_snapshot_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:03,439 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_type_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:04,175 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_vision_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:04,177 WARNING [20260831_174838_72928275] tools.registry: check_fn check_computer_use_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:04,184 WARNING [20260831_174838_72928275] tools.registry: check_fn check_image_generation_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:04,185 WARNING [20260831_174838_72928275] tools.registry: check_fn _check_kanban_mode returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:04,188 WARNING [20260831_174838_72928275] tools.registry: check_fn _check_kanban_orchestrator_mode returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:04,199 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:00:04.
+2026-08-31 17:59:04,202 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-08-31 17:59:04,202 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:00:04.
+2026-08-31 17:59:04,202 WARNING [20260831_174838_72928275] agent.auxiliary_client: resolve_provider_client: nous requested but Nous Portal not configured (run: hermes auth)
+2026-08-31 17:59:04,205 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:00:04.
+2026-08-31 17:59:04,208 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-08-31 17:59:04,208 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:00:04.
+2026-08-31 17:59:04,208 WARNING [20260831_174838_72928275] agent.auxiliary_client: resolve_provider_client: nous requested but Nous Portal not configured (run: hermes auth)
+2026-08-31 17:59:04,208 WARNING [20260831_174838_72928275] tools.registry: check_fn check_vision_requirements returned False; dependent tools will be unavailable this turn
+2026-08-31 17:59:05,738 WARNING [20260831_174838_72928275] agent.conversation_loop: Stored system prompt for session 20260831_174838_72928275 is null; rebuilding from scratch this turn. Prefix cache will miss until the rebuild persists. Investigate the previous turn's update_system_prompt write path.
+2026-08-31 18:00:20,458 WARNING agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:01:20.
+2026-08-31 18:00:20,464 WARNING agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-08-31 18:00:20,464 WARNING agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:01:20.
+2026-08-31 18:00:20,649 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and no fallback available (tried: openrouter, nous, local/custom, api-key)
+2026-08-31 18:00:20,650 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and all fallbacks exhausted (fallback_chain + main agent model). Raising original error.
+2026-08-31 18:01:44,215 WARNING agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:02:44.
+2026-08-31 18:01:44,222 WARNING agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-08-31 18:01:44,222 WARNING agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:02:44.
+2026-08-31 18:01:44,279 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and no fallback available (tried: openrouter, nous, local/custom, api-key)
+2026-08-31 18:01:44,279 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and all fallbacks exhausted (fallback_chain + main agent model). Raising original error.
+2026-08-31 18:06:44,396 WARNING [20260831_174838_72928275] agent.tool_executor: Tool terminal returned error (333.70s): {"output": "", "exit_code": -1, "error": "BLOCKED: Command timed out without user response. The user has NOT consented to this action. Do NOT retry this command, do NOT rephrase it, and do NOT attempt
+2026-08-31 18:32:21,455 WARNING [20260831_174838_72928275] agent.chat_completion_helpers: Non-streaming API call stale for 90s (threshold 90s). model=Seekai0731 context=~23,960 tokens. Killing connection.
+2026-08-31 18:32:21,462 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 1/3) error_type=ReadError thread=hermes-gateway_0:140246162650816 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=[Errno 32] Broken pipe
+2026-08-31 18:32:21,463 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 2.9920875149671207s (attempt 1/3) thread=hermes-gateway_0:140246162650816 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=[Errno 32] Broken pipe
+2026-08-31 18:33:54,768 WARNING [20260831_174838_72928275] agent.chat_completion_helpers: Non-streaming API call stale for 90s (threshold 90s). model=Seekai0731 context=~23,960 tokens. Killing connection.
+2026-08-31 18:33:54,774 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 2/3) error_type=ReadError thread=hermes-gateway_0:140246162650816 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=[Errno 32] Broken pipe
+2026-08-31 18:33:54,775 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 5.608497876734752s (attempt 2/3) thread=hermes-gateway_0:140246162650816 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=[Errno 32] Broken pipe
+2026-08-31 18:35:15,431 WARNING agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:36:15.
+2026-08-31 18:35:15,435 WARNING agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-08-31 18:35:15,435 WARNING agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:36:15.
+2026-08-31 18:35:16,022 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and no fallback available (tried: openrouter, nous, local/custom, api-key)
+2026-08-31 18:35:16,022 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and all fallbacks exhausted (fallback_chain + main agent model). Raising original error.
+2026-08-31 18:40:45,182 WARNING [20260831_174838_72928275] agent.tool_executor: Tool terminal returned error (10.20s): {"output": "=== skills: old vs new ===\n=== current sessions.json ===\n{\n  \"_README\": \"LEGACY MIRROR of the gateway routing index (the primary copy lives in the gateway_routing table in ~/.hermes/
+2026-08-31 18:42:01,876 WARNING [20260831_174838_72928275] agent.tool_executor: Tool terminal returned error (23.99s): {"output": "Traceback (most recent call last):\n  File \"<stdin>\", line 25, in <module>\nsqlite3.IntegrityError: UNIQUE constraint failed: messages.id", "exit_code": 1, "error": null, "approval": "Co
+2026-08-31 18:43:02,194 WARNING agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:44:02.
+2026-08-31 18:43:02,203 WARNING agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-08-31 18:43:02,204 WARNING agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:44:02.
+2026-08-31 18:43:02,430 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and no fallback available (tried: openrouter, nous, local/custom, api-key)
+2026-08-31 18:43:02,430 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and all fallbacks exhausted (fallback_chain + main agent model). Raising original error.

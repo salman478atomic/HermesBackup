@@ -1,0 +1,45 @@
+2026-08-31 17:47:21,491 INFO gateway.control_socket: Gateway control socket listening at /data/.hermes/gateway.sock
+2026-08-31 17:47:21,587 INFO gateway.run: Starting Hermes Gateway...
+2026-08-31 17:47:21,589 INFO gateway.run: Session storage: /data/.hermes/sessions
+2026-08-31 17:47:21,594 INFO gateway.run: Agent budget: max_iterations=500 (agent.max_turns from config.yaml, or HERMES_MAX_ITERATIONS from .env, or default 500)
+2026-08-31 17:47:21,595 INFO gateway.run: Secret redaction: ENABLED (tool output, logs, and chat responses are scrubbed before delivery)
+2026-08-31 17:47:21,678 INFO gateway.run: Connecting to telegram...
+2026-08-31 17:47:21,690 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Discovering Telegram API fallback IPs via DNS-over-HTTPS…
+2026-08-31 17:47:21,834 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Auto-discovered Telegram fallback IPs: 149.154.166.110
+2026-08-31 17:47:21,834 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Telegram fallback IPs active: 149.154.166.110
+2026-08-31 17:47:21,862 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Connecting to Telegram (attempt 1/8)…
+2026-08-31 17:47:21,924 INFO plugins.platforms.telegram.telegram_network: [Telegram] Using sticky IPv4 Telegram API path 149.154.166.110 (dual-stack hostname tried last — #87015)
+2026-08-31 17:47:31,983 INFO plugins.platforms.telegram.telegram_network: [Telegram] Using sticky IPv4 Telegram API path 149.154.166.110 (dual-stack hostname tried last — #87015)
+2026-08-31 17:47:31,984 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Telegram polling confirmed healthy: getUpdates progressing (generation 1)
+2026-08-31 17:47:32,001 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Connected to Telegram (polling mode)
+2026-08-31 17:47:32,550 INFO gateway.run: ✓ telegram connected
+2026-08-31 17:47:32,725 INFO gateway.run: Gateway running with 1 platform(s)
+2026-08-31 17:47:32,781 INFO gateway.run: Channel directory built: 0 target(s)
+2026-08-31 17:47:32,846 INFO hermes_plugins.telegram_platform.adapter: [Telegram] set_my_commands OK for scope BotCommandScopeDefault (60 cmds)
+2026-08-31 17:47:32,908 INFO hermes_plugins.telegram_platform.adapter: [Telegram] set_my_commands OK for scope BotCommandScopeAllPrivateChats (60 cmds)
+2026-08-31 17:47:32,945 INFO hermes_plugins.telegram_platform.adapter: [Telegram] set_my_commands OK for scope BotCommandScopeAllGroupChats (60 cmds)
+2026-08-31 17:47:32,946 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Telegram menu: 60 commands registered, 80 hidden (over 60 limit). Use /commands for full list.
+2026-08-31 17:47:33,825 INFO gateway.run: Press Ctrl+C to stop
+2026-08-31 17:47:33,848 INFO gateway.run: kanban dispatcher: holding singleton dispatcher lock (/data/.hermes/kanban/.dispatcher.lock)
+2026-08-31 17:47:33,849 INFO gateway.run: kanban dispatcher: kanban.max_in_progress unset; using memory-derived default max_in_progress=8 (set kanban.max_in_progress in config.yaml to override)
+2026-08-31 17:47:33,885 INFO gateway.run: Gateway housekeeping started (interval=60s)
+2026-08-31 17:47:38,850 INFO gateway.run: kanban dispatcher: embedded in gateway (interval=60.0s)
+2026-08-31 17:48:38,127 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (2 chars)
+2026-08-31 17:48:38,243 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='هی' reply_to_id=None reply_to_text=''
+2026-08-31 17:48:40,605 INFO gateway.run: No model configured — defaulting to z-ai/glm-5.2 for provider openrouter
+2026-08-31 17:48:58,366 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=20.1s api_calls=1 response=39 chars
+2026-08-31 17:48:58,369 INFO gateway.run: Transient agent failure in session 20260831_174838_72928275 — persisting user message so conversation context is preserved on retry.
+2026-08-31 17:48:58,468 INFO gateway.platforms.base: [Telegram] Sending response (114 chars) to 2035219030
+2026-08-31 17:49:24,777 INFO gateway.platforms.base: [Telegram] Sending response (107 chars) to 2035219030
+2026-08-31 17:58:55,941 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (224 chars)
+2026-08-31 17:58:55,962 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='ghp_yH...Ka3S  Github hermes backup token  https://gi' reply_to_id=None reply_to_text=''
+2026-08-31 18:00:26,182 INFO hermes_plugins.telegram_platform.adapter: Telegram button resolved 1 approval(s) for session agent:main:telegram:dm:2035219030 (choice=session, user=S)
+2026-08-31 18:27:47,052 INFO hermes_plugins.telegram_platform.adapter: Telegram button resolved 0 approval(s) for session agent:main:telegram:dm:2035219030 (choice=always, user=S)
+2026-08-31 18:30:26,355 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (102 chars)
+2026-08-31 18:30:26,357 INFO gateway.run: Gateway intercepted clarify text response (session=agent:main:telegram:dm:2035219030, id=62ede26b77)
+2026-08-31 18:30:35,591 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (14 chars)
+2026-08-31 18:30:35,596 INFO gateway.run: Gateway intercepted clarify text response (session=agent:main:telegram:dm:2035219030, id=b4f30adf8c)
+2026-08-31 18:30:51,330 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (7 chars)
+2026-08-31 18:30:51,333 INFO gateway.run: Gateway intercepted clarify text response (session=agent:main:telegram:dm:2035219030, id=19f4ceda11)
+2026-08-31 18:35:24,585 INFO hermes_plugins.telegram_platform.adapter: Telegram button resolved 1 approval(s) for session agent:main:telegram:dm:2035219030 (choice=session, user=S)
+2026-08-31 18:43:04,745 INFO hermes_plugins.telegram_platform.adapter: Telegram button resolved 1 approval(s) for session agent:main:telegram:dm:2035219030 (choice=always, user=S)

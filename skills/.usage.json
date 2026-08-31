@@ -1,32 +1,17 @@
 {
-  "automated-backup": {
-    "archived_at": null,
-    "created_at": "2026-08-27T10:07:44.003592+00:00",
-    "created_by": "agent",
-    "last_patched_at": "2026-08-27T10:25:04.150836+00:00",
-    "last_reused_patch_generation": 4,
-    "last_used_at": "2026-08-27T11:04:58.838512+00:00",
-    "last_viewed_at": "2026-08-27T11:04:58.831621+00:00",
-    "patch_count": 4,
-    "patch_generation": 4,
-    "pinned": false,
-    "state": "active",
-    "use_count": 5,
-    "view_count": 5
-  },
   "github-repo-management": {
     "archived_at": null,
-    "created_at": "2026-08-27T10:04:53.004749+00:00",
+    "created_at": "2026-08-31T17:59:35.696002+00:00",
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-08-27T10:05:04.345951+00:00",
-    "last_viewed_at": "2026-08-27T10:05:04.343130+00:00",
+    "last_used_at": "2026-08-31T17:59:35.702460+00:00",
+    "last_viewed_at": "2026-08-31T17:59:35.696073+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 1,
+    "view_count": 1
   }
 }

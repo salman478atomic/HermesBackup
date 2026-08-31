@@ -6,11 +6,19 @@ compression:
   enabled: true
   threshold: 0.85
 command_allowlist:
-  - script execution via -e/-c flag
+  - script execution via heredoc
 onboarding:
   seen:
     profile_build_offered: true
 _config_version: 39
+platforms:
+  telegram:
+    enabled: true
+    home_channel:
+      platform: telegram
+      chat_id: '2035219030'
+      name: S
+      user_id: '2035219030'
 
 # ── Security ──────────────────────────────────────────────────────────
 # Secret redaction is ON by default — strings that look like API keys,

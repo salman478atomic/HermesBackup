@@ -1,9 +1,10 @@
 {
-  "timestamp": "2026-08-27T11:09:33+00:00",
-  "hostname": "db38f47b0420",
+  "timestamp": "2026-08-31T18:45:52Z",
+  "hostname": "a81fcae1e73b",
   "hermes_version": "unknown",
   "backup_items": [
-    "memories", "config.yaml", "SOUL.md", "skills",
-    "cron_executions.db", "state.db", "sessions", "kanban.db"
-  ]
+    "memories", "config.yaml", "SOUL.md", ".env", "channel_directory.json",
+    "skills", "sessions", "logs", "state.db", "kanban.db", "cron_executions.db"
+  ],
+  "notes": "NO force-push policy; pre-existing files preserved."
 }
