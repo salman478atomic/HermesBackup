@@ -123,3 +123,4 @@ openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Missing Aut
 2026-08-31 18:43:02,204 WARNING agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 18:44:02.
 2026-08-31 18:43:02,430 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and no fallback available (tried: openrouter, nous, local/custom, api-key)
 2026-08-31 18:43:02,430 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and all fallbacks exhausted (fallback_chain + main agent model). Raising original error.
+2026-08-31 18:46:58,191 WARNING [20260831_174838_72928275] agent.tool_executor: Tool cronjob returned error (0.01s): {"error": "Script path must be relative to ~/.hermes/scripts/. Got absolute or home-relative path: '/data/.hermes/scripts/hermes_backup.sh'. Place scripts in ~/.hermes/scripts/ and use just the filena

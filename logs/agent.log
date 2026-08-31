@@ -345,3 +345,11 @@ openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Missing Aut
 2026-08-31 18:44:49,494 INFO hermes_cli.mem_trim: memory trim: reason=messaging gateway housekeeping malloc_trim=1 rss_kib=291952->289620 rss_anon_kib=255208->252876 threads=16 duration_ms=274.5
 2026-08-31 18:45:42,924 INFO [20260831_174838_72928275] agent.tool_executor: tool write_file completed (0.18s, 253 chars)
 2026-08-31 18:45:49,753 INFO hermes_cli.mem_trim: memory trim: reason=messaging gateway housekeeping malloc_trim=1 rss_kib=291540->289180 rss_anon_kib=254796->252436 threads=17 duration_ms=257.6
+2026-08-31 18:45:57,001 INFO [20260831_174838_72928275] agent.tool_executor: tool terminal completed (5.57s, 497 chars)
+2026-08-31 18:46:45,950 INFO [20260831_174838_72928275] agent.tool_executor: tool terminal completed (0.34s, 1209 chars)
+2026-08-31 18:46:50,108 INFO hermes_cli.mem_trim: memory trim: reason=messaging gateway housekeeping malloc_trim=1 rss_kib=295708->289304 rss_anon_kib=258964->252560 threads=17 duration_ms=263.6
+2026-08-31 18:46:58,191 WARNING [20260831_174838_72928275] agent.tool_executor: Tool cronjob returned error (0.01s): {"error": "Script path must be relative to ~/.hermes/scripts/. Got absolute or home-relative path: '/data/.hermes/scripts/hermes_backup.sh'. Place scripts in ~/.hermes/scripts/ and use just the filena
+2026-08-31 18:47:05,582 INFO [20260831_174838_72928275] agent.tool_executor: tool cronjob completed (0.16s, 1546 chars)
+2026-08-31 18:47:21,700 INFO [20260831_174838_72928275] agent.tool_executor: tool terminal completed (0.25s, 372 chars)
+2026-08-31 18:47:50,434 INFO hermes_cli.mem_trim: memory trim: reason=messaging gateway housekeeping malloc_trim=1 rss_kib=293144->289216 rss_anon_kib=256400->252472 threads=17 duration_ms=325.2
+2026-08-31 18:48:00,808 INFO [20260831_174838_72928275] agent.tool_executor: tool patch completed (0.22s, 755 chars)
