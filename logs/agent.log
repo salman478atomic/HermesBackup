@@ -353,3 +353,13 @@ openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Missing Aut
 2026-08-31 18:47:21,700 INFO [20260831_174838_72928275] agent.tool_executor: tool terminal completed (0.25s, 372 chars)
 2026-08-31 18:47:50,434 INFO hermes_cli.mem_trim: memory trim: reason=messaging gateway housekeeping malloc_trim=1 rss_kib=293144->289216 rss_anon_kib=256400->252472 threads=17 duration_ms=325.2
 2026-08-31 18:48:00,808 INFO [20260831_174838_72928275] agent.tool_executor: tool patch completed (0.22s, 755 chars)
+2026-08-31 18:48:11,753 INFO [20260831_174838_72928275] agent.tool_executor: tool terminal completed (3.76s, 308 chars)
+2026-08-31 18:48:46,692 WARNING [20260831_174838_72928275] agent.tool_executor: Tool skill_manage returned error (0.02s): {"success": false, "error": "Description is 159 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger first, ends with a period). The skill index truncates longer descrip
+2026-08-31 18:48:50,728 INFO hermes_cli.mem_trim: memory trim: reason=messaging gateway housekeeping malloc_trim=1 rss_kib=294592->290160 rss_anon_kib=257848->253416 threads=17 duration_ms=293.3
+2026-08-31 18:49:05,634 WARNING [20260831_174838_72928275] agent.tool_executor: Tool skill_manage returned error (0.01s): {"success": false, "error": "Description is 126 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger first, ends with a period). The skill index truncates longer descrip
+2026-08-31 18:49:20,876 WARNING [20260831_174838_72928275] agent.tool_executor: Tool skill_manage returned error (0.01s): {"success": false, "error": "Description is 77 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger first, ends with a period). The skill index truncates longer descript
+2026-08-31 18:49:47,644 INFO [20260831_174838_72928275] agent.tool_executor: tool skill_manage completed (0.09s, 1214 chars)
+2026-08-31 18:49:50,971 INFO hermes_cli.mem_trim: memory trim: reason=messaging gateway housekeeping malloc_trim=1 rss_kib=295152->290484 rss_anon_kib=258408->253740 threads=17 duration_ms=242.8
+2026-08-31 18:50:02,260 INFO agent.auxiliary_client: Auxiliary auto-detect: using main provider openai-api (Seekai0731)
+2026-08-31 18:50:02,261 INFO agent.auxiliary_client: Auxiliary approval: using openai-api (Seekai0731) at https://9router-production-2cd61.up.railway.app/v1/
+2026-08-31 18:50:23,919 INFO hermes_plugins.telegram_platform.adapter: Telegram button resolved 1 approval(s) for session agent:main:telegram:dm:2035219030 (choice=always, user=S)

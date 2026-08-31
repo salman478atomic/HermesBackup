@@ -7,6 +7,7 @@ compression:
   threshold: 0.85
 command_allowlist:
   - script execution via heredoc
+  - script execution via -e/-c flag
 onboarding:
   seen:
     profile_build_offered: true
