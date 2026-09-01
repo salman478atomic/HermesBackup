@@ -545,6 +545,34 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
 .vbx{display:flex;gap:5px;margin-top:7px}
 .vbx .x{flex:1;text-align:center;font-size:8.5px;color:var(--text-3);font-weight:600;overflow:hidden;white-space:nowrap;min-width:0}
 
+/* ---- Score-band / donut / lollipop charts (added v2.1.1) ---- */
+.bands{display:flex;flex-direction:column;gap:10px}
+.bands .i{display:grid;grid-template-columns:64px 1fr 44px;align-items:center;gap:10px}
+.bands .rg{font-size:11px;font-weight:600;color:var(--text-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bands .tr{height:7px;border-radius:9px;background:var(--border);overflow:hidden}
+.bands .fl{height:100%;border-radius:9px;background:var(--sc,var(--accent));width:0;transition:width .8s cubic-bezier(.22,1,.36,1)}
+.bands .c{text-align:right;font-size:12px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
+
+.donutrow{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.donut{position:relative;flex:0 0 130px;width:130px}
+.donut svg{display:block;width:100%;height:auto;transform:rotate(-90deg)}
+.donut .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.donut .mid .v{font-size:22px;font-weight:700;letter-spacing:-.04em;color:var(--text)}
+.donut .mid .l{margin-top:3px;font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3)}
+.legend{flex:1;min-width:140px;display:flex;flex-direction:column;gap:7px}
+.legend .li{display:flex;align-items:center;gap:8px;font-size:12px}
+.legend .li i{width:9px;height:9px;border-radius:99px;flex:0 0 auto}
+.legend .li .n{color:var(--text-2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.legend .li .c{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
+
+.lol{display:flex;flex-direction:column;gap:12px}
+.lol .i .lab{display:flex;justify-content:space-between;gap:10px;font-size:12px;margin-bottom:6px}
+.lol .i .lab .n{color:var(--text-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.lol .i .lab .c{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums;flex:0 0 auto}
+.lol .i .tr{position:relative;height:7px;border-radius:9px;background:var(--border)}
+.lol .i .tr .seg{display:block;height:100%;border-radius:9px;background:var(--sc,var(--accent));width:0;padding:0;border:0;gap:0;background-color:var(--sc,var(--accent));transition:width .8s cubic-bezier(.22,1,.36,1)}
+.lol .i .tr .dot{position:absolute;top:50%;left:0;width:13px;height:13px;border-radius:99px;background:var(--sc,var(--accent));border:2px solid #000;transform:translate(-50%,-50%);box-shadow:0 0 10px rgba(232,123,10,.35)}
+
 /* ========== Settings ========== */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;margin-top:18px}
 .cth{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px}
@@ -769,7 +797,7 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
 
 var GH_JSON_URL = "https://api.github.com/repos/salman478atomic/HermesBackup/contents/ps3_games.json";
 var GH_TOKEN    = "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";           /* placeholder token */
-var APP_VERSION = "2.1.0";
+var APP_VERSION = "2.1.1";
 var PAGE_SIZE   = 100;
 
 /* ---------- state ---------- */
