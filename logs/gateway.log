@@ -53,3 +53,74 @@
 2026-08-31 19:05:15,292 INFO gateway.platforms.base: [Telegram] Sending response (120 chars) to 2035219030
 2026-08-31 20:09:11,537 INFO gateway.run: Agent cache idle-TTL evict: session=agent:main:telegram:dm:2035219030 (idle=3837s)
 2026-08-31 20:09:11,541 INFO gateway.run: Agent cache idle sweep: evicted 1 agent(s)
+2026-09-01 01:11:13,996 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram network _redact_telegram_error_text(error), scheduling reconnect: Bad Gateway
+2026-09-01 01:11:13,997 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram network error (attempt 1/10), reconnecting in 5s. Error: Bad Gateway
+2026-09-01 01:11:22,236 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram polling reconnect failed: Bad Gateway
+2026-09-01 01:11:22,237 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram network error (attempt 2/10), reconnecting in 10s. Error: Bad Gateway
+2026-09-01 01:11:52,304 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram polling reconnect failed: Timed out
+2026-09-01 01:11:52,304 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram network error (attempt 3/10), reconnecting in 20s. Error: Timed out
+2026-09-01 01:12:32,403 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram polling reconnect failed: Timed out
+2026-09-01 01:12:32,403 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram network error (attempt 4/10), reconnecting in 40s. Error: Timed out
+2026-09-01 01:13:12,443 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Telegram polling restarted after network error (attempt 4); health pending getUpdates progress
+2026-09-01 01:13:22,468 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Telegram polling confirmed healthy: getUpdates progressing (generation 5)
+2026-09-01 03:11:39,758 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (4 chars)
+2026-09-01 03:11:39,817 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='چیشد' reply_to_id=None reply_to_text=''
+2026-09-01 03:12:20,545 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=40.7s api_calls=1 response=343 chars
+2026-09-01 03:12:20,547 INFO gateway.run: Transient agent failure in session 20260831_174838_72928275 — persisting user message so conversation context is preserved on retry.
+2026-09-01 03:12:20,910 INFO gateway.platforms.base: [Telegram] Sending response (84 chars) to 2035219030
+2026-09-01 04:15:30,778 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (16 chars)
+2026-09-01 04:15:30,808 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='چیکار داری میکنی' reply_to_id=None reply_to_text=''
+2026-09-01 04:25:34,597 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (6 chars)
+2026-09-01 04:26:09,656 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=638.8s api_calls=12 response=240 chars
+2026-09-01 04:26:09,734 INFO gateway.platforms.base: [Telegram] Sending response (240 chars) to 2035219030
+2026-09-01 04:27:05,306 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (95 chars)
+2026-09-01 04:27:05,335 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='مطمئنی داتاست درست رو دانلود کردی ؟ چون دیتاستی که من اینکشو بهت دادم فیلد های خ' reply_to_id=None reply_to_text=''
+2026-09-01 04:33:01,737 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (172 chars)
+2026-09-01 04:33:01,740 INFO gateway.run: Gateway intercepted clarify text response (session=agent:main:telegram:dm:2035219030, id=8b610a4f3e)
+2026-09-01 04:41:23,703 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (32 chars)
+2026-09-01 04:42:22,359 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=917.0s api_calls=20 response=700 chars
+2026-09-01 04:42:22,497 INFO gateway.platforms.base: [Telegram] Sending response (700 chars) to 2035219030
+2026-09-01 04:49:00,798 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (38 chars)
+2026-09-01 04:49:00,811 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='یک پست دیدم، بهت میدم شاید به درد خورد' reply_to_id=None reply_to_text=''
+2026-09-01 04:49:16,297 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=15.5s api_calls=1 response=186 chars
+2026-09-01 04:49:16,366 INFO gateway.platforms.base: [Telegram] Sending response (186 chars) to 2035219030
+2026-09-01 04:50:33,603 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (837 chars)
+2026-09-01 04:50:33,619 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='اگه دنبال ساختن یه AI Agent برای کارهای علمی و تحقیقاتی هستید، این پروژه رو حتما' reply_to_id=None reply_to_text=''
+2026-09-01 04:55:26,938 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (41 chars)
+2026-09-01 04:55:26,941 INFO gateway.run: Gateway intercepted clarify text response (session=agent:main:telegram:dm:2035219030, id=ef633ef0f7)
+2026-09-01 04:58:19,879 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=466.3s api_calls=13 response=1066 chars
+2026-09-01 04:58:19,973 INFO gateway.platforms.base: [Telegram] Sending response (1066 chars) to 2035219030
+2026-09-01 05:02:13,484 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (62 chars)
+2026-09-01 05:02:13,498 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='اخرین نسخه برنامه رو بهم بده. قبلش  با دیتابیس فعلی سازگارش کن' reply_to_id=None reply_to_text=''
+2026-09-01 05:09:23,970 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] send_exec_approval failed: Message is too long
+2026-09-01 05:09:23,972 WARNING gateway.run: Prompt send failed: Message is too long
+2026-09-01 05:09:23,972 WARNING gateway.run: Button-based approval failed (send returned error), falling back to text
+2026-09-01 05:15:34,790 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (29 chars)
+2026-09-01 05:23:35,661 INFO hermes_plugins.telegram_platform.adapter: Telegram button resolved 1 approval(s) for session agent:main:telegram:dm:2035219030 (choice=session, user=S)
+2026-09-01 05:26:55,708 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=1482.2s api_calls=37 response=1483 chars
+2026-09-01 05:26:55,811 INFO gateway.platforms.base: [Telegram] Sending response (1483 chars) to 2035219030
+2026-09-01 05:28:34,141 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (15 chars)
+2026-09-01 05:28:34,292 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='برنامه رو بفرست' reply_to_id=None reply_to_text=''
+2026-09-01 05:34:13,516 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=339.2s api_calls=2 response=645 chars
+2026-09-01 05:34:13,878 INFO gateway.platforms.base: [Telegram] Sending response (611 chars) to 2035219030
+2026-09-01 05:34:14,059 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-01 05:40:48,210 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (112 chars)
+2026-09-01 05:40:48,222 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='اخرین نسخه اینه. دیتابیس رو با این هماهنگ کن فکر کنم با کپی پیست هم بشه ولی نمید' reply_to_id=None reply_to_text=''
+2026-09-01 05:40:48,369 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Cached user document at /data/.hermes/cache/documents/doc_4af606ebaad0_018.html (application/octet-stream)
+2026-09-01 05:40:49,878 INFO gateway.run: Session hygiene: 251 messages, ~240,273 tokens (actual) — auto-compressing (threshold: 85% of 256,000 = 217,600 tokens)
+2026-09-01 05:41:20,005 INFO gateway.run: Session hygiene compression for session 20260831_174838_72928275 still streaming after 30s (last progress 0.1s ago) — extending wait (ceiling 600s)
+2026-09-01 05:41:49,941 INFO gateway.run: Session hygiene compression for session 20260831_174838_72928275 still streaming after 60s (last progress 0.0s ago) — extending wait (ceiling 600s)
+2026-09-01 05:42:19,926 INFO gateway.run: Session hygiene compression for session 20260831_174838_72928275 still streaming after 90s (last progress 0.1s ago) — extending wait (ceiling 600s)
+2026-09-01 05:42:49,805 INFO gateway.run: Session hygiene compression for session 20260831_174838_72928275 still streaming after 120s (last progress 0.1s ago) — extending wait (ceiling 600s)
+2026-09-01 05:43:19,726 INFO gateway.run: Session hygiene compression for session 20260831_174838_72928275 still streaming after 150s (last progress 0.0s ago) — extending wait (ceiling 600s)
+2026-09-01 05:43:49,716 INFO gateway.run: Session hygiene compression for session 20260831_174838_72928275 still streaming after 180s (last progress 0.2s ago) — extending wait (ceiling 600s)
+2026-09-01 05:44:19,537 INFO gateway.run: Session hygiene compression for session 20260831_174838_72928275 still streaming after 210s (last progress 0.2s ago) — extending wait (ceiling 600s)
+2026-09-01 05:44:49,378 INFO gateway.run: Session hygiene compression for session 20260831_174838_72928275 still streaming after 239s (last progress 0.1s ago) — extending wait (ceiling 600s)
+2026-09-01 05:45:19,269 INFO gateway.run: Session hygiene compression for session 20260831_174838_72928275 still streaming after 269s (last progress 0.0s ago) — extending wait (ceiling 600s)
+2026-09-01 05:45:30,556 INFO gateway.run: Session hygiene: compressed 251 → 91 msgs, ~240,273 → ~54,060 tokens
+2026-09-01 06:02:56,514 INFO gateway.run: Queued follow-up for session agent:main:telegram:dm:2035219030: final stream delivery not confirmed; sending first response before continuing.
+2026-09-01 06:04:31,765 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=1423.5s api_calls=2 response=732 chars
+2026-09-01 06:04:31,821 INFO gateway.platforms.base: [Telegram] Sending response (698 chars) to 2035219030
+2026-09-01 06:04:31,904 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-01 07:07:05,176 INFO gateway.run: Agent cache idle-TTL evict: session=agent:main:telegram:dm:2035219030 (idle=3754s)
+2026-09-01 07:07:05,177 INFO gateway.run: Agent cache idle sweep: evicted 1 agent(s)

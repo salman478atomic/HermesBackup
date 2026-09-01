@@ -137,3 +137,389 @@ openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Missing Aut
 2026-08-31 19:05:14,700 WARNING [20260831_174838_72928275] agent.chat_completion_helpers: Non-streaming API call stale for 90s (threshold 90s). model=Seekai0731 context=~45,112 tokens. Killing connection.
 2026-08-31 19:05:14,705 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 3/3) error_type=ReadError thread=hermes-gateway_0:140246162650816 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=[Errno 32] Broken pipe
 2026-08-31 19:05:14,730 ERROR [20260831_174838_72928275] agent.conversation_loop: API call failed after 3 retries. [Errno 32] Broken pipe | provider=openai-api model=Seekai0731 msgs=71 tokens=~37,455
+2026-09-01 01:11:13,996 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram network _redact_telegram_error_text(error), scheduling reconnect: Bad Gateway
+2026-09-01 01:11:13,997 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram network error (attempt 1/10), reconnecting in 5s. Error: Bad Gateway
+2026-09-01 01:11:22,177 ERROR telegram.ext.Updater: Error while calling `get_updates` one more time to mark all fetched updates. Suppressing error to ensure graceful shutdown. When polling for updates is restarted, updates may be fetched again. Please adjust timeouts via `ApplicationBuilder` or the parameter `get_updates_request` of `Bot`.
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 400, in _get_updates_cleanup
+    await self.bot.get_updates(
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4767, in get_updates
+    await self._post(
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 712, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 741, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.NetworkError: Bad Gateway
+2026-09-01 01:11:22,231 ERROR telegram.ext: Network Retry Loop (Bootstrap delete Webhook): Failed run number 0 of 0. Aborting.
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 136, in do_action
+    await action_cb()
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 686, in bootstrap_del_webhook
+    await self.bot.delete_webhook(drop_pending_updates=drop_pending_updates)
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 1520, in delete_webhook
+    return await super().delete_webhook(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4934, in delete_webhook
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 712, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 741, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.NetworkError: Bad Gateway
+2026-09-01 01:11:22,236 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram polling reconnect failed: Bad Gateway
+2026-09-01 01:11:22,237 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram network error (attempt 2/10), reconnecting in 10s. Error: Bad Gateway
+2026-09-01 01:11:52,248 ERROR telegram.ext: Network Retry Loop (Bootstrap delete Webhook): Timed out: Timed out. Failed run number 0 of 0. Aborting.
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/plugins/platforms/telegram/telegram_network.py", line 157, in handle_async_request
+    response = await transport.handle_async_request(candidate)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 136, in do_action
+    await action_cb()
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 686, in bootstrap_del_webhook
+    await self.bot.delete_webhook(drop_pending_updates=drop_pending_updates)
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 1520, in delete_webhook
+    return await super().delete_webhook(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4934, in delete_webhook
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 712, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 741, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 296, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-09-01 01:11:52,304 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram polling reconnect failed: Timed out
+2026-09-01 01:11:52,304 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram network error (attempt 3/10), reconnecting in 20s. Error: Timed out
+2026-09-01 01:12:32,321 ERROR telegram.ext: Network Retry Loop (Bootstrap delete Webhook): Timed out: Timed out. Failed run number 0 of 0. Aborting.
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/plugins/platforms/telegram/telegram_network.py", line 157, in handle_async_request
+    response = await transport.handle_async_request(candidate)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_utils/networkloop.py", line 136, in do_action
+    await action_cb()
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_updater.py", line 686, in bootstrap_del_webhook
+    await self.bot.delete_webhook(drop_pending_updates=drop_pending_updates)
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 1520, in delete_webhook
+    return await super().delete_webhook(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 4934, in delete_webhook
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 712, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/ext/_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/_bot.py", line 741, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/telegram/request/_httpxrequest.py", line 296, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-09-01 01:12:32,403 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram polling reconnect failed: Timed out
+2026-09-01 01:12:32,403 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] Telegram network error (attempt 4/10), reconnecting in 40s. Error: Timed out
+2026-09-01 03:11:47,984 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_back_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:48,671 WARNING [20260831_174838_72928275] tools.registry: check_fn _browser_cdp_check returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:49,499 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_click_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:50,302 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:51,089 WARNING [20260831_174838_72928275] tools.registry: check_fn _browser_dialog_check returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:51,090 WARNING [20260831_174838_72928275] tools.registry: check_fn is_browser_use_cli_mode returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:51,804 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_navigate_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:52,518 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_press_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:53,469 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_scroll_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:54,176 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_snapshot_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:55,547 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_type_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:56,381 WARNING [20260831_174838_72928275] tools.registry: check_fn check_browser_vision_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:56,382 WARNING [20260831_174838_72928275] tools.registry: check_fn check_computer_use_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:56,387 WARNING [20260831_174838_72928275] tools.registry: check_fn check_image_generation_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:56,388 WARNING [20260831_174838_72928275] tools.registry: check_fn _check_kanban_mode returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:56,390 WARNING [20260831_174838_72928275] tools.registry: check_fn _check_kanban_orchestrator_mode returned False; dependent tools will be unavailable this turn
+2026-09-01 03:11:56,397 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 03:12:56.
+2026-09-01 03:11:56,401 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-09-01 03:11:56,401 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 03:12:56.
+2026-09-01 03:11:56,401 WARNING [20260831_174838_72928275] agent.auxiliary_client: resolve_provider_client: nous requested but Nous Portal not configured (run: hermes auth)
+2026-09-01 03:11:56,402 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 03:12:56.
+2026-09-01 03:11:56,405 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-09-01 03:11:56,406 WARNING [20260831_174838_72928275] agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 03:12:56.
+2026-09-01 03:11:56,406 WARNING [20260831_174838_72928275] agent.auxiliary_client: resolve_provider_client: nous requested but Nous Portal not configured (run: hermes auth)
+2026-09-01 03:11:56,406 WARNING [20260831_174838_72928275] tools.registry: check_fn check_vision_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 03:12:01,081 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 1/3) error_type=RateLimitError thread=hermes-gateway_0:140246162650816 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 2s)
+2026-09-01 03:12:01,084 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 2.630753764280813s (attempt 1/3) thread=hermes-gateway_0:140246162650816 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=Error code: 429 - {'error': {'message': '[openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 2s)'}}
+2026-09-01 03:12:10,100 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 2/3) error_type=RateLimitError thread=hermes-gateway_0:140246162650816 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 4s)
+2026-09-01 03:12:10,101 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 5.3089889045796905s (attempt 2/3) thread=hermes-gateway_0:140246162650816 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=Error code: 429 - {'error': {'message': '[openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 4s)'}}
+2026-09-01 03:12:20,238 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 3/3) error_type=RateLimitError thread=hermes-gateway_0:140246162650816 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"The model service is currently busy or has reached its serving capacity limit. Please reduce the request frequency and try again later.","type":"rate_limit_error","param":"","code":"429006"}} (res
+2026-09-01 03:12:20,250 ERROR [20260831_174838_72928275] agent.conversation_loop: API call failed after 3 retries. HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"The model service is currently busy or has reached its serving capacity limit. Please reduce the request frequency and try again later.","type":"rate_limit_error","param":"","code":"429006"}} (res | provider=openai-api model=Seekai0731 msgs=71 tokens=~37,457
+2026-09-01 04:17:07,169 WARNING [20260831_174838_72928275] agent.chat_completion_helpers: Non-streaming API call stale for 90s (threshold 90s). model=Seekai0731 context=~45,119 tokens. Killing connection.
+2026-09-01 04:17:07,176 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 1/3) error_type=ReadError thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=[Errno 32] Broken pipe
+2026-09-01 04:17:07,179 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 2.032722920339734s (attempt 1/3) thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=[Errno 32] Broken pipe
+2026-09-01 04:18:22,753 WARNING [20260831_174838_72928275] agent.tool_executor: Tool memory returned error (0.02s): {"success": false, "error": "After applying all 3 operations, memory would be at 2,955/2,200 chars -- over the limit. Remove or shorten more entries in the same batch (see current_entries below), then
+2026-09-01 04:23:27,645 WARNING [20260831_174838_72928275] agent.tool_executor: Tool terminal returned error (1.05s): {"output": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'pyarrow'\nTraceback (most recent call last):\n  File \"<stdin>\", line 1
+2026-09-01 04:23:54,423 WARNING [20260831_174838_72928275] agent.tool_executor: Tool terminal returned error (18.27s): {"output": "rows: 899585 | cols: 54\ncolumns: ['id', 'slug', 'name', 'released', 'background_image', 'rating', 'rating_top', 'ratings_count', 'reviews_text_count', 'added', 'metacritic', 'playtime', '
+2026-09-01 04:26:11,369 WARNING tools.registry: check_fn check_browser_back_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:12,230 WARNING tools.registry: check_fn _browser_cdp_check returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:13,173 WARNING tools.registry: check_fn check_browser_click_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:13,923 WARNING tools.registry: check_fn check_browser_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:14,684 WARNING tools.registry: check_fn _browser_dialog_check returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:14,686 WARNING tools.registry: check_fn is_browser_use_cli_mode returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:15,473 WARNING tools.registry: check_fn check_browser_navigate_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:16,241 WARNING tools.registry: check_fn check_browser_press_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:16,951 WARNING tools.registry: check_fn check_browser_scroll_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:17,708 WARNING tools.registry: check_fn check_browser_snapshot_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:18,527 WARNING tools.registry: check_fn check_browser_type_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:19,223 WARNING tools.registry: check_fn check_browser_vision_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:19,224 WARNING tools.registry: check_fn check_computer_use_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:19,229 WARNING tools.registry: check_fn check_image_generation_requirements returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:19,231 WARNING tools.registry: check_fn _check_kanban_mode returned False; dependent tools will be unavailable this turn
+2026-09-01 04:26:19,232 WARNING tools.registry: check_fn _check_kanban_orchestrator_mode returned False; dependent tools will be unavailable this turn
+2026-09-01 04:28:01,800 WARNING [20260831_174838_72928275] agent.tool_executor: Tool web_extract returned error (0.34s): {
+  "results": [
+    {
+      "url": "https://www.kaggle.com/datasets/atalaydenknalbant/rawg-games-dataset",
+      "title": "Checking your browser - reCAPTCHA",
+      "content": "# Checking your browse
+2026-09-01 04:45:19,355 WARNING [20260831_174838_72928275] agent.tool_executor: Tool skill_manage returned error (0.01s): {"success": false, "error": "Refusing background curator patch for skill 'hermes-backup-restore': the skill is not curator-managed (created_by=None). User-owned skills are off-limits to autonomous cur
+2026-09-01 04:50:49,873 WARNING [20260831_174838_72928275] agent.tool_executor: Tool web_extract returned error (0.35s): {
+  "results": [
+    {
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "title": "",
+      "content": "",
+      "error": "Keyless Firecrawl extract failed: Client error '403
+2026-09-01 04:57:19,223 WARNING [20260831_174838_72928275] agent.tool_executor: Tool memory returned error (0.01s): {"success": false, "error": "After applying all 1 operations, memory would be at 2,528/2,200 chars -- over the limit. Remove or shorten more entries in the same batch (see current_entries below), then
+2026-09-01 05:00:16,545 WARNING [20260831_174838_72928275] agent.tool_executor: Tool skill_manage returned error (0.01s): {"success": false, "error": "Refusing background curator patch for skill 'hermes-backup-restore': the skill is not curator-managed (created_by=None). User-owned skills are off-limits to autonomous cur
+2026-09-01 05:01:35,771 WARNING [20260831_174838_72928275] agent.tool_executor: Tool skill_manage returned error (0.01s): {"success": false, "error": "Refusing background curator patch for skill 'large-dataset-processing': the current SKILL.md content has not been loaded in this review turn. Call skill_view(name) for SKI
+2026-09-01 05:06:18,888 WARNING [20260831_174838_72928275] agent.tool_executor: Tool terminal returned error (2.12s): {"output": "/usr/bin/node\ntotal: 3209\nesrb values: {'{\"id\":4,\"name\":\"Mature\",\"slug\":\"mature\"}': 516, '{\"id\":2,\"name\":\"Everyone 10+\",\"slug\":\"ev': 763, '{\"id\":3,\"name\":\"Teen\",
+2026-09-01 05:09:23,518 WARNING agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 05:10:23.
+2026-09-01 05:09:23,526 WARNING agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-09-01 05:09:23,526 WARNING agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 05:10:23.
+2026-09-01 05:09:23,954 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and no fallback available (tried: openrouter, nous, local/custom, api-key)
+2026-09-01 05:09:23,954 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and all fallbacks exhausted (fallback_chain + main agent model). Raising original error.
+2026-09-01 05:09:23,970 WARNING hermes_plugins.telegram_platform.adapter: [Telegram] send_exec_approval failed: Message is too long
+2026-09-01 05:09:23,972 WARNING gateway.run: Prompt send failed: Message is too long
+2026-09-01 05:09:23,972 WARNING gateway.run: Button-based approval failed (send returned error), falling back to text
+2026-09-01 05:14:24,231 WARNING [20260831_174838_72928275] agent.tool_executor: Tool terminal returned error (342.48s): {"output": "", "exit_code": -1, "error": "BLOCKED: Command timed out without user response. The user has NOT consented to this action. Do NOT retry this command, do NOT rephrase it, and do NOT attempt
+2026-09-01 05:15:06,570 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 1/3) error_type=RateLimitError thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 2s)
+2026-09-01 05:15:06,571 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 2.803794228354178s (attempt 1/3) thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=Error code: 429 - {'error': {'message': '[openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 2s)'}}
+2026-09-01 05:15:18,568 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 2/3) error_type=RateLimitError thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 1s)
+2026-09-01 05:15:18,569 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 4.476414654580808s (attempt 2/3) thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=Error code: 429 - {'error': {'message': '[openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 1s)'}}
+2026-09-01 05:15:34,805 WARNING agent.codex_runtime: Codex Responses request failed: serialized_request_body_bytes=412609 stream_opened=false exception_chain=APIConnectionError <- ReadError <- ReadError model=Seekai0731
+2026-09-01 05:17:23,319 WARNING hermes_state: verification_evidence.db: linked SQLite 3.46.1 is vulnerable to the WAL-reset corruption bug (https://sqlite.org/wal.html#walresetbug) — using journal_mode=DELETE instead of enabling WAL. Upgrade to SQLite 3.51.3+ (or backports 3.50.7 / 3.44.6); Hermes-managed installs can repair the embedded runtime with `hermes update`. See `hermes doctor`. This warning fires once per process per database.
+2026-09-01 05:19:15,705 WARNING [20260831_174838_72928275] agent.tool_executor: Tool patch returned error (0.09s): {"success": false, "error": "Patch validation failed (no files were modified):\n  • /data/workspace/HermesBackup/ps3-game-library.html: hunk 4 (no hint) not found — Found 2 matches for old_string. Pro
+2026-09-01 05:20:18,436 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 1/3) error_type=RateLimitError thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 2s)
+2026-09-01 05:20:18,436 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 2.9665650240352917s (attempt 1/3) thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=Error code: 429 - {'error': {'message': '[openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 2s)'}}
+2026-09-01 05:20:28,922 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 2/3) error_type=RateLimitError thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"The request rate exceeds the current model TPM limit 300000000. Please reduce the request frequency or contact Tencent Cloud support to request a higher limit.","type":"gateway_error","param":"","
+2026-09-01 05:20:28,923 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 5.8748334353392035s (attempt 2/3) thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=Error code: 429 - {'error': {'message': '[openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"The request rate exceeds the current model TPM limit 300000000. Please reduce the request frequency or contact Tencent Cloud support to request a higher limit.","type":"gateway_error","param":"","code":"429001"}} (reset after 16s)'}}
+2026-09-01 05:21:50,165 WARNING [20260831_174838_72928275] agent.tool_executor: Tool terminal returned error (0.60s): {"output": "node:internal/modules/cjs/loader:1215\n  throw err;\n  ^\n\nError: Cannot find module '/tmp/adapter_fix.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1212:15)\n    
+2026-09-01 05:21:59,997 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 1/3) error_type=RateLimitError thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"The request rate exceeds the current model TPM limit 300000000. Please reduce the request frequency or contact Tencent Cloud support to request a higher limit.","type":"gateway_error","param":"","
+2026-09-01 05:21:59,998 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 2.2625658637011887s (attempt 1/3) thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=Error code: 429 - {'error': {'message': '[openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"The request rate exceeds the current model TPM limit 300000000. Please reduce the request frequency or contact Tencent Cloud support to request a higher limit.","type":"gateway_error","param":"","code":"429001"}} (reset after 2s)'}}
+2026-09-01 05:22:26,827 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 1/3) error_type=RateLimitError thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"The model service is currently busy or has reached its serving capacity limit. Please reduce the request frequency and try again later.","type":"rate_limit_error","param":"","code":"429006"}} (res
+2026-09-01 05:22:26,828 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 2.7934647739540113s (attempt 1/3) thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=Error code: 429 - {'error': {'message': '[openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"The model service is currently busy or has reached its serving capacity limit. Please reduce the request frequency and try again later.","type":"rate_limit_error","param":"","code":"429006"}} (reset after 2s)'}}
+2026-09-01 05:23:32,240 WARNING agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 05:24:32.
+2026-09-01 05:23:32,245 WARNING agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-09-01 05:23:32,245 WARNING agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 05:24:32.
+2026-09-01 05:23:32,447 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and no fallback available (tried: openrouter, nous, local/custom, api-key)
+2026-09-01 05:23:32,447 WARNING agent.auxiliary_client: Auxiliary approval: connection error on auto and all fallbacks exhausted (fallback_chain + main agent model). Raising original error.
+2026-09-01 05:26:03,761 WARNING [20260831_174838_72928275] agent.tool_executor: Tool memory returned error (0.00s): {"success": false, "error": "After applying all 1 operations, memory would be at 2,310/2,200 chars -- over the limit. Remove or shorten more entries in the same batch (see current_entries below), then
+2026-09-01 05:26:24,978 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 1/3) error_type=RateLimitError thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"The model service is currently busy or has reached its serving capacity limit. Please reduce the request frequency and try again later.","type":"rate_limit_error","param":"","code":"429006"}} (res
+2026-09-01 05:26:24,979 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 2.266438414260372s (attempt 1/3) thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=Error code: 429 - {'error': {'message': '[openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"The model service is currently busy or has reached its serving capacity limit. Please reduce the request frequency and try again later.","type":"rate_limit_error","param":"","code":"429006"}} (reset after 2s)'}}
+2026-09-01 05:28:34,844 WARNING agent.model_metadata: Could not determine context length for model 'Seekai0731' (base_url=https://9router-production-2cd61.up.railway.app/v1/) — falling back to 256,000 tokens. Set model.context_length in config.yaml to override.
+2026-09-01 05:33:35,008 WARNING agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 05:34:35.
+2026-09-01 05:33:35,020 WARNING agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-09-01 05:33:35,022 WARNING agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 05:34:35.
+2026-09-01 05:33:35,205 WARNING agent.auxiliary_client: Auxiliary compression: connection error on auto and no fallback available (tried: openrouter, nous, local/custom, api-key)
+2026-09-01 05:33:35,205 WARNING agent.auxiliary_client: Auxiliary compression: connection error on auto and all fallbacks exhausted (fallback_chain + main agent model). Raising original error.
+2026-09-01 05:33:35,262 WARNING agent.context_compressor: Failed to generate context summary: Codex auxiliary Responses stream exceeded 300.0s total timeout. Further summary attempts paused for 60 seconds.
+2026-09-01 05:45:30,006 WARNING agent.auxiliary_client: Auxiliary: marking openrouter unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 05:46:30.
+2026-09-01 05:45:30,011 WARNING agent.auxiliary_client: Auxiliary Nous client unavailable: no Nous authentication found (run: hermes auth).
+2026-09-01 05:45:30,011 WARNING agent.auxiliary_client: Auxiliary: marking nous unhealthy for 60s (payment / credit error). Subsequent auxiliary calls will skip it until 05:46:30.
+2026-09-01 05:45:30,173 WARNING agent.auxiliary_client: Auxiliary auto-detect: no provider available (tried: openrouter, nous, local/custom, api-key). Compression, summarization, and memory flush will not work. Set OPENROUTER_API_KEY or configure a local model in config.yaml.
+2026-09-01 05:45:30,230 WARNING agent.auxiliary_client: Auxiliary auto-detect: no provider available (tried: openrouter (unhealthy), nous (unhealthy), local/custom, api-key). Compression, summarization, and memory flush will not work. Set OPENROUTER_API_KEY or configure a local model in config.yaml.
+2026-09-01 05:45:30,231 WARNING agent.context_compressor: lean chunk digest 1/2 failed: No LLM provider configured for task=compression provider=auto. Run: hermes setup
+2026-09-01 05:45:30,288 WARNING agent.auxiliary_client: Auxiliary auto-detect: no provider available (tried: openrouter (unhealthy), nous (unhealthy), local/custom, api-key). Compression, summarization, and memory flush will not work. Set OPENROUTER_API_KEY or configure a local model in config.yaml.
+2026-09-01 05:45:30,354 WARNING agent.auxiliary_client: Auxiliary auto-detect: no provider available (tried: openrouter (unhealthy), nous (unhealthy), local/custom, api-key). Compression, summarization, and memory flush will not work. Set OPENROUTER_API_KEY or configure a local model in config.yaml.
+2026-09-01 05:45:30,355 WARNING agent.context_compressor: lean chunk digest 2/2 failed: No LLM provider configured for task=compression provider=auto. Run: hermes setup
+2026-09-01 05:46:57,588 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 1/3) error_type=RateLimitError thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=HTTP 429: [openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 2s)
+2026-09-01 05:46:57,589 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 2.3490917314807382s (attempt 1/3) thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=Error code: 429 - {'error': {'message': '[openai-compatible-chat-96d66d0a-0b3b-4cda-aabb-f65013fd339c/glm-5.3-flash] [429]: {"error":{"message":"您的账户已达到速率限制，请您控制请求频率","type":"upstream_error","param":"","code":"1302"}} (reset after 2s)'}}
+2026-09-01 05:50:19,166 WARNING [20260831_174838_72928275] agent.chat_completion_helpers: Non-streaming API call stale for 90s (threshold 90s). model=Seekai0731 context=~38,010 tokens. Killing connection.
+2026-09-01 05:50:21,176 WARNING [20260831_174838_72928275] agent.conversation_loop: API call failed (attempt 1/3) error_type=TimeoutError thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=Non-streaming API call timed out after 90s with no response (threshold: 90s)
+2026-09-01 05:50:21,178 WARNING [20260831_174838_72928275] agent.conversation_loop: Retrying API call in 2.5196160492533592s (attempt 1/3) thread=hermes-gateway_1:140245736601280 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=Non-streaming API call timed out after 90s with no response (threshold: 90s)
+2026-09-01 05:50:28,453 WARNING agent.codex_runtime: Codex streaming attempt superseded by a newer stream; stopping consumption to preserve the single-writer invariant (model=Seekai0731).
+2026-09-01 06:03:00,297 WARNING agent.codex_runtime: Codex Responses request failed: serialized_request_body_bytes=224651 stream_opened=false exception_chain=APIConnectionError <- ReadError <- ReadError model=Seekai0731
