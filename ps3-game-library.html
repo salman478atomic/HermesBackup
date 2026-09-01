@@ -706,7 +706,7 @@ tbody td.tt{color:var(--text);font-weight:650;white-space:normal;min-width:150px
 
 var GH_JSON_URL = "https://api.github.com/repos/salman478atomic/HermesBackup/contents/ps3_games.json";
 var GH_TOKEN    = "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";           /* placeholder token */
-var APP_VERSION = "1.0.0";
+var APP_VERSION = "2.0.0";
 var PAGE_SIZE   = 100;
 
 /* ---------- state ---------- */
@@ -736,12 +736,15 @@ var LABEL = {
   critic_count:"Critic Reviews", user_score_count:"User Ratings",
   critic_sentiment:"Critic Sentiment", user_score_sentiment:"User Sentiment",
   tags:"Tags", is_dlc:"Type", dlc_parent:"Parent Game", dlc_count:"DLC Count",
-  description:"Description", platform_metascores:"Platform Scores"
+  description:"Description", platform_metascores:"Platform Scores",
+  released:"Release Date", achievements_count:"Achievements",
+  rating:"RAWG Rating", ratings_count:"Ratings", reviews_text_count:"Text Reviews",
+  added:"Added", stores:"Stores", esrb_rating:"ESRB"
 };
-var RANGE_FIELDS = ["critic_score","user_score","year","playtime","critic_count","user_score_count","max_players","online_players"];
-var TEXT_FIELDS  = ["genres","platforms","developer","publisher","series","content_rating","critic_sentiment","user_score_sentiment","tags","is_dlc"];
-var SORT_FIELDS  = ["title","critic_score","user_score","year","developer","playtime","series","max_players"];
-var TABLE_COLS   = ["title","critic_score","user_score","genres","platforms","developer","publisher","year","playtime","series","max_players","online_players","content_rating","critic_count","user_score_count"];
+var RANGE_FIELDS = ["critic_score","user_score","year","playtime","critic_count","user_score_count","achievements_count"];
+var TEXT_FIELDS  = ["genres","platforms","developer","publisher","content_rating","critic_sentiment","user_score_sentiment","tags","is_dlc"];
+var SORT_FIELDS  = ["title","critic_score","user_score","year","developer","playtime","released","achievements_count"];
+var TABLE_COLS   = ["title","critic_score","user_score","genres","platforms","developer","publisher","year","released","playtime","content_rating","critic_count","user_score_count","achievements_count","tags"];
 var MULTI = { genres:1, platforms:1, tags:1 };   /* comma separated multi-value */
 
 var THEMES = [
@@ -801,7 +804,8 @@ function scoreBadge(s,cls){
 
 /* ---------- deterministic SVG cover art ---------- */
 function hashStr(s){ var h=0; for(var i=0;i<s.length;i++){ h=(h*31 + s.charCodeAt(i))|0; } return Math.abs(h); }
-function coverFor(title){
+function coverFor(title, img){
+  if(img) return img;
   var t = title||"?";
   var h = hashStr(t);
   var h1 = h%360, h2 = (h1 + 40 + (h%70))%360;
@@ -832,7 +836,10 @@ function loadS(){
       if(o.sortField) S.sortField=o.sortField;
       if(o.sortDir) S.sortDir=o.sortDir;
       if(o.theme) S.theme=o.theme;
-      if(Array.isArray(o.cols)&&o.cols.length>=2) S.cols=o.cols;
+      if(Array.isArray(o.cols)&&o.cols.length>=2) S.cols=o.cols.filter(function(c){ return TABLE_COLS.indexOf(c)!==-1; });
+      if(S.cols.length<2) S.cols=TABLE_COLS.slice(0,6);
+      if(o.sortField && SORT_FIELDS.indexOf(o.sortField)===-1) delete o.sortField;
+      if(o.sortField) S.sortField=o.sortField;
       if(o.status&&typeof o.status==="object") S.status=o.status;
     }
   }catch(e){ dbg("localStorage read failed: "+e.message); }
@@ -893,7 +900,8 @@ function loadFromApi(showToast){
     .then(function(j){
       var list = Array.isArray(j) ? j : (j && Array.isArray(j.games) ? j.games : null);
       if(!list) throw new Error("unexpected JSON shape");
-      dbg("received "+list.length+" records");
+      list = rawgAdapter(list);
+      dbg("received "+list.length+" records (RAWG-normalized)");
       return idbPut(list).then(function(){ return list; });
     })
     .then(function(list){
@@ -1014,7 +1022,7 @@ function matches(g){
 
 function sortList(list){
   var f=S.sortField, dir=S.sortDir==="asc"?1:-1;
-  var numeric = ["critic_score","user_score","year","playtime","max_players"].indexOf(f)!==-1;
+  var numeric = ["critic_score","user_score","year","playtime","achievements_count","critic_count","user_score_count"].indexOf(f)!==-1;
   return list.sort(function(a,b){
     var x=a[f], y=b[f];
     if(numeric){
@@ -1166,7 +1174,7 @@ function renderHero(){
   $("hero").innerHTML = list.map(function(g,i){
     var gen=splitList(g.genres).slice(0,2);
     return '<button class="hero-card" data-open="'+esc_attr(g.title)+'">'+
-      '<img class="bg" src="'+coverFor(g.title)+'" alt="">'+
+      '<img class="bg" src="'+coverFor(g.title, g.background_image)+'" alt="">'+
       '<div class="veil"></div>'+
       '<span class="rank">#'+(i+1)+' TOP RATED</span>'+
       '<div class="body">'+
@@ -1287,7 +1295,7 @@ function subLine(g,parts){
 function rowHtml(g){
   return '<article class="row"><div class="open" data-open="'+esc_attr(g.title)+'">'+
     '<div class="top">'+
-      '<img class="thumb" src="'+coverFor(g.title)+'" alt="" loading="lazy">'+
+      '<img class="thumb" src="'+coverFor(g.title, g.background_image)+'" alt="" loading="lazy">'+
       '<div class="mid"><div class="tt"><h3>'+esc(g.title)+'</h3>'+scoreBadge(g.critic_score)+'</div>'+
         '<div class="sub">'+subLine(g,{genres:1,platforms:1,developer:1,user:1,playtime:1,year:1})+'</div>'+
         (g.is_dlc?'<div style="margin-top:7px"><span class="dlcflag">DLC</span></div>':"")+
@@ -1296,7 +1304,7 @@ function rowHtml(g){
 }
 function cardHtml(g){
   return '<article class="gcard"><div class="open" data-open="'+esc_attr(g.title)+'">'+
-    '<div class="imgwrap"><img class="thumb" src="'+coverFor(g.title)+'" alt="" loading="lazy">'+
+    '<div class="imgwrap"><img class="thumb" src="'+coverFor(g.title, g.background_image)+'" alt="" loading="lazy">'+
       '<div class="fade"></div>'+scoreBadge(g.critic_score)+
       (g.is_dlc?'<span class="dlcflag">DLC</span>':"")+'</div>'+
     '<div class="body"><h3>'+esc(g.title)+'</h3>'+
@@ -1305,7 +1313,7 @@ function cardHtml(g){
 }
 function tileHtml(g){
   return '<article class="gtile"><div class="open" data-open="'+esc_attr(g.title)+'" style="display:flex;flex-direction:column;height:100%">'+
-    '<div class="imgwrap"><img class="thumb" src="'+coverFor(g.title)+'" alt="" loading="lazy">'+
+    '<div class="imgwrap"><img class="thumb" src="'+coverFor(g.title, g.background_image)+'" alt="" loading="lazy">'+
       scoreBadge(g.critic_score,"sm")+(g.is_dlc?'<span class="dlcflag">DLC</span>':"")+'</div>'+
     '<div class="body"><h3>'+esc(g.title)+'</h3>'+
       '<div class="sub">'+subLine(g,{genres:1,year:1})+'</div>'+
@@ -1368,8 +1376,9 @@ function renderColChips(){
    ============================================================================ */
 function kvRow(k,v,linkAttr){
   if(!has(v)) return "";
+  var inner = linkAttr ? 'Open ↗' : esc(v);
   return '<div class="r"><span class="k">'+esc(k)+'</span>'+
-    '<span class="v'+(linkAttr?" link":"")+'"'+(linkAttr||"")+'>'+esc(v)+'</span></div>';
+    '<span class="v'+(linkAttr?" link":"")+'"'+(linkAttr||"")+'>'+inner+'</span></div>';
 }
 function kvBlock(title,rows){
   var body=rows.join("");
@@ -1384,7 +1393,7 @@ function openGame(title){
   var h="";
 
   /* header */
-  h+='<div class="mhero"><img class="thumb" src="'+coverFor(g.title)+'" alt="">'+
+  h+='<div class="mhero"><img class="thumb" src="'+coverFor(g.title, g.background_image)+'" alt="">'+
      '<div class="veil"></div>'+
      '<button class="mclose" onclick="closeSheet()" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></button>'+
      '<div class="cap"><h2>'+esc(g.title)+'</h2><div class="badges">'+
@@ -1416,9 +1425,9 @@ function openGame(title){
   h+=kvBlock("Overview",[
     kvRow(LABEL.year,g.year),
     kvRow(LABEL.platforms,g.platforms),
-    kvRow(LABEL.max_players,g.max_players),
-    kvRow(LABEL.online_players,g.online_players),
-    kvRow(LABEL.content_rating,g.content_rating)
+    kvRow(LABEL.released,g.released),
+    kvRow(LABEL.content_rating,g.content_rating),
+    kvRow(LABEL.achievements_count,g.achievements_count)
   ]);
 
   /* credits (series clickable) */
@@ -1427,6 +1436,13 @@ function openGame(title){
     kvRow(LABEL.publisher,g.publisher),
     kvRow(LABEL.series,g.series, has(g.series)?' data-series="'+esc_attr(g.series)+'"':null),
     kvRow(LABEL.genres,g.genres)
+  ]);
+
+  /* links */
+  h+=kvBlock("Links",[
+    kvRow(LABEL.metacritic_url,g.metacritic_url,has(g.metacritic_url)?' data-link="'+esc_attr(g.metacritic_url)+'"':null),
+    kvRow(LABEL.website,g.website,has(g.website)?' data-link="'+esc_attr(g.website)+'"':null),
+    kvRow(LABEL.reddit_url,g.reddit_url,has(g.reddit_url)?' data-link="'+esc_attr(g.reddit_url)+'"':null)
   ]);
 
   /* platform metascores */
@@ -1577,9 +1593,9 @@ function renderStats(){
   if(!GAMES.length){ return; }
   var nonDlc=GAMES.filter(function(g){return !g.is_dlc;});
   var dlc=GAMES.filter(function(g){return g.is_dlc;});
-  var multi=GAMES.filter(function(g){ return num(g.max_players)>1; }).length;
+  var multi=GAMES.filter(function(g){ return (g.tags||"").toLowerCase().indexOf("multiplayer")!==-1; }).length;
   var ptTotal=0; GAMES.forEach(function(g){ var v=num(g.playtime); if(v!==null) ptTotal+=v; });
-  var series=uniqCount("series");
+  var series=uniqCount("tags");
   var yMin=minOf("year"), yMax=maxOf("year");
   var devTop=topN(countBy("developer"),1)[0]||["—",0];
   var pubTop=topN(countBy("publisher"),1)[0]||["—",0];
@@ -1593,10 +1609,10 @@ function renderStats(){
     b('Avg User Score',fmt(avgOf("user_score"),1))+
     b('Best Metacritic',fmt(maxOf("critic_score")),true)+
     b('Best User Score',fmt(maxOf("user_score")))+
-    b('Multiplayer Titles',multi.toLocaleString())+
+    b('Multiplayer Tagged',multi.toLocaleString())+
     b('Avg Playtime',fmt(avgOf("playtime"),1)+'<small>h</small>')+
     b('Total Playtime',Math.round(ptTotal).toLocaleString()+'<small>h</small>')+
-    b('Unique Series',series.toLocaleString())+
+    b('Unique Tags',series.toLocaleString())+
     b('Release Span',(has(yMin)?yMin:"—")+' – '+(has(yMax)?yMax:"—"))+
     bs('Top Developer',devTop[0],devTop[1]+' titles')+
     bs('Top Publisher',pubTop[0],pubTop[1]+' titles')+
@@ -1648,26 +1664,20 @@ function renderStats(){
   h+=chartBox("Avg User Score by Genre","min. 3 titles",lollipop(avgByGroup("genres","user_score").slice(0,10),100));
 
   /* 10 series */
-  h+=chartBox("Top 10 Series","by entry count",hbars(topN(countBy("series"),10)));
+  h+=chartBox("Top 10 Tags","by title count",hbars(topN(countBy("tags"),10)));
 
   /* 11 max players */
-  var mp={"1 player":0,"2 players":0,"3 players":0,"4 players":0,"5+ players":0};
-  GAMES.forEach(function(g){
-    var v=num(g.max_players); if(v===null||v<1) return;
-    if(v>=5) mp["5+ players"]++;
-    else mp[v+" player"+(v>1?"s":"")]++;
-  });
-  h+=chartBox("Local Player Count","max_players groups",
-    donut(Object.keys(mp).filter(function(k){return mp[k]>0;}).map(function(k){return [k,mp[k]];}),"rated"));
+  var cr=topN(countBy("critic_sentiment"),7);
+  if(cr.length) h+=chartBox("RAWG Verdict","largest rating segment",donut(cr,"titles"));
 
   /* 12 content rating */
   h+=chartBox("Content Rating","age labels",hbars(topN(countBy("content_rating"),10)));
 
   /* 13 most DLC */
-  var dl=GAMES.filter(function(g){ return num(g.dlc_count)>0; })
-    .map(function(g){ return [g.title, num(g.dlc_count)]; })
+  var dl=GAMES.map(function(g){ var v=num(g._raw && g._raw.additions_count); return v?[g.title,v]:null; })
+    .filter(Boolean)
     .sort(function(a,b){ return b[1]-a[1]; }).slice(0,10);
-  h+=chartBox("Most DLC","top 10 by dlc_count", dl.length?hbars(dl):'<div class="empty"><div class="s">No DLC counts in this dataset.</div></div>');
+  h+=chartBox("Most DLC","top 10 by RAWG additions_count", dl.length?hbars(dl):'<div class="empty"><div class="s">No DLC counts in this dataset.</div></div>');
 
   h+='</div>';
   $("statsbody").innerHTML=h;
@@ -1824,6 +1834,8 @@ function wire(){
     }
     var sr=e.target.closest("[data-series]");
     if(sr){ jumpSeries(sr.getAttribute("data-series")); return; }
+    var lk=e.target.closest("[data-link]");
+    if(lk){ window.open(lk.getAttribute("data-link"),"_blank","noopener"); return; }
     var th2=e.target.closest("[data-theme-id]");
     if(th2){ applyTheme(th2.getAttribute("data-theme-id")); toast("Theme: "+th2.querySelector(".nm").textContent,"ok"); return; }
     var op=e.target.closest("[data-open]");
@@ -1905,7 +1917,8 @@ function boot(){
   dbg("app v"+APP_VERSION+" starting");
   idbAll().then(function(rows){
     if(rows && rows.length){
-      dbg("loaded "+rows.length+" records from IndexedDB cache");
+      rows = rawgAdapter(rows);
+      dbg("loaded "+rows.length+" records from IndexedDB cache (RAWG-normalized)");
       bootWithData(rows);
     } else {
       dbg("cache empty — showing load gate");
@@ -1918,6 +1931,102 @@ function boot(){
   });
 }
 document.addEventListener("DOMContentLoaded", boot);
+</script>
+<script>
+/* ============================================================================
+   RAWG ADAPTER v2 — normalizes RAWG-sourced records into the app schema.
+   Runs on BOTH data paths: IndexedDB cache and remote fetch.
+   Records already carrying "_adapter" are only de-duplicated (idempotent).
+   ============================================================================ */
+function rawgAdapter(list){
+  var DLC_PAT = /(?::\s*dlc\b|\bdlc\b|\bexpansion\b|\badd-?on\b|\bsoundtrack\b|\bskin pack\b|\bdeluxe bundle\b|\bseason pass\b)/i;
+  function num2(v){ var n=parseFloat(v); return isNaN(n)?null:n; }
+  function parseEsrB(v){
+    if(!v) return null;
+    if(typeof v==="string"){ try{ v=JSON.parse(v); }catch(e){ return v; } }
+    return (v && v.name) ? String(v.name) : null;
+  }
+  var ESRB_SHORT = { "everyone":"E", "everyone 10+":"E10+", "teen":"T", "mature":"M", "adults only":"AO", "rating pending":"RP" };
+  function topSegment(s){
+    var re=/\{[^{}]*\}/g, m, best=null, bestP=-1;
+    while((m=re.exec(s||""))){
+      var pm=/percent:\s*([0-9.]+)/.exec(m[0]);
+      var tm=/title:\s*([a-z]+)/i.exec(m[0]);
+      if(!pm||!tm) continue;
+      var p=parseFloat(pm[1]);
+      if(p>bestP){ bestP=p; best=tm[1].toLowerCase(); }
+    }
+    return best;
+  }
+  function rawKey(g){
+    return g.title + "|" + (g.released||g.year||"") + "|" + (g._raw && g._raw.id);
+  }
+  var seen={}, out=[];
+  (list||[]).forEach(function(r){
+    if(!r) return;
+    if(r._adapter){
+      var k0=rawKey(r);
+      if(!seen[k0]){ seen[k0]=1; out.push(r); }
+      return;
+    }
+    var raw = r._raw || r;
+    var name = raw.name || r.title || "(untitled)";
+    var released = raw.released || r.released || "";
+    var year = /^\d{4}/.test(released) ? released.slice(0,4) : r.year;
+    var tba = String(raw.tba===undefined?"":raw.tba).trim();
+    if(tba==="1" || tba==="1.0" || tba==="true") year="TBA";
+    var mc = num2(raw.metacritic);
+    var us = num2(raw.rating);
+    var top = num2(raw.rating_top) || 5;
+    function pipe2comma(s){ return s ? String(s).split("|").join(", ") : null; }
+    var parents = num2(raw.parents_count) || 0;
+    var isDlc = parents>0 || DLC_PAT.test(name);
+    var esrbName = parseEsrB(raw.esrb_rating);
+    var contentRating = null;
+    if (esrbName) {
+      var esrbLower = String(esrbName).toLowerCase();
+      if (esrbLower === "none" || esrbLower === "null" || esrbLower === "") {
+        contentRating = null;
+      } else {
+        contentRating = ESRB_SHORT[esrbLower] || esrbName;
+      }
+    }
+    var g = {
+      title: name,
+      genres: pipe2comma(raw.genres) || r.genres || null,
+      developer: pipe2comma(raw.developers) || r.developer || null,
+      publisher: pipe2comma(raw.publishers) || r.publisher || null,
+      platforms: pipe2comma(raw.platforms) || r.platforms || null,
+      year: year,
+      released: released || null,
+      playtime: num2(raw.playtime),
+      tags: pipe2comma(raw.tags) || r.tags || null,
+      is_dlc: isDlc,
+      critic_score: mc===null?null:Math.round(mc),
+      user_score: us===null?null:Math.min(100, Math.round((us/5)*1000)/10),
+      critic_count: num2(raw.ratings_count)===null?null:Math.round(num2(raw.ratings_count)),
+      user_score_count: num2(raw.reviews_text_count)===null?null:Math.round(num2(raw.reviews_text_count)),
+      critic_sentiment: topSegment(raw.ratings),
+      user_score_sentiment: topSegment(raw.ratings),
+      content_rating: contentRating,
+      series: r.series || null,
+      achievements_count: num2(raw.achievements_count)===null?null:Math.round(num2(raw.achievements_count)),
+      background_image: raw.background_image || r.background_image || null,
+      website: raw.website || r.website || null,
+      reddit_url: raw.reddit_url || r.reddit_url || null,
+      metacritic_url: raw.metacritic_url || r.metacritic_url || null,
+      description: (raw.description_raw || r.description || "").trim() || null,
+      dlc_parent: null,
+      _raw: raw,
+      _adapter: 2
+    };
+    var k=rawKey(g);
+    if(seen[k]) return;
+    seen[k]=1;
+    out.push(g);
+  });
+  return out;
+}
 </script>
 </body>
 </html>
