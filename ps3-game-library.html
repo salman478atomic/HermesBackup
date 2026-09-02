@@ -359,10 +359,12 @@ h1,h2,h3,h4,p{margin:0}
   padding:3px 10px;border-radius:999px;border:1px solid var(--border);
   white-space:nowrap;
 }
-/* developer — second line, wraps instead of overflowing; long lists clamp to 2 lines */
+/* developer — always occupies its own full row (flex-basis 100% forces a new line),
+   wraps instead of overflowing; long lists clamp to 2 lines */
 .mdev{
   display:inline-flex;align-items:flex-start;gap:4px;color:var(--text-2);
   font-weight:600;font-size:12px;max-width:100%;
+  flex-basis:100%;
   overflow-wrap:anywhere;word-break:break-word;
 }
 .mdev .dtxt{
