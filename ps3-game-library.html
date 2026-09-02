@@ -31,11 +31,11 @@
   --accent-soft: rgba(232,123,10,0.12);
   --accent-active-bg: rgba(232,123,10,0.15);
   --accent-ink: #ffffff;
-  --sc-elite: #E87B0A;
-  --sc-great: #F5A55C;
-  --sc-good: #d4a373;
-  --sc-mixed: #9e9e9e;
-  --sc-poor: #5a5a5a;
+  --sc-elite: #4ade80;
+  --sc-great: #a3e635;
+  --sc-good: #facc15;
+  --sc-mixed: #fb923c;
+  --sc-poor: #f87171;
   --radius-xs: 6px;
   --radius-sm: 10px;
   --radius-md: 14px;
@@ -104,7 +104,7 @@ h1,h2,h3,h4,p{margin:0}
   padding:4px 16px 6px;scroll-behavior:smooth;
 }
 .hero-card{
-  position:relative;flex:0 0 82%;scroll-snap-align:center;height:200px;border-radius:var(--radius-lg);
+  position:relative;flex:0 0 82%;scroll-snap-align:center;height:244px;border-radius:var(--radius-lg);
   overflow:hidden;background:var(--surface-2);transition:transform .2s;text-align:left;
   border:1px solid rgba(255,255,255,0.04);
 }
@@ -201,7 +201,7 @@ h1,h2,h3,h4,p{margin:0}
 }
 .seg button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2}
 .seg button.on{
-  background:var(--text);color:#000;
+  background:var(--accent);color:#fff;box-shadow:0 2px 12px rgba(232,123,10,.3);
 }
 .seg button:active{transform:scale(.93)}
 .iconbtn{
@@ -287,7 +287,7 @@ h1,h2,h3,h4,p{margin:0}
 }
 .st button svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.6;flex:0 0 auto}
 .st button:active{transform:scale(.96)}
-.st button.on{color:#fff;background:var(--accent)}
+.st button.on{color:#fff;background:var(--accent);box-shadow:0 2px 14px rgba(232,123,10,.35)}
 .st.mini button{height:26px;font-size:9.5px;border-radius:var(--radius-sm)}
 .st.mini button svg{display:none}
 
@@ -320,7 +320,7 @@ h1,h2,h3,h4,p{margin:0}
 .row.active .sub{color:var(--accent);opacity:.85}
 .row .top{display:flex;gap:13px;align-items:flex-start;min-width:0}
 .row .thumb{
-  width:64px;height:64px;border-radius:var(--radius-md);flex:0 0 64px;
+  width:74px;height:74px;border-radius:var(--radius-md);flex:0 0 74px;
   position:relative;display:block;overflow:hidden;background:var(--surface-2);
 }
 .row .thumb::after{
@@ -395,7 +395,7 @@ h1,h2,h3,h4,p{margin:0}
   border:1px solid var(--border);transition:all .2s;min-width:0;
 }
 .gcard:hover{border-color:var(--border-2);transform:translateY(-1px)}
-.gcard .imgwrap{position:relative;height:158px}
+.gcard .imgwrap{position:relative;height:210px}
 .gcard .thumb{width:100%;height:100%}
 .gcard .imgwrap .fade{position:absolute;inset:auto 0 0 0;height:60%;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.8))}
 .gcard .imgwrap .score{position:absolute;top:11px;right:11px;background:rgba(0,0,0,0.6)}
@@ -411,7 +411,7 @@ h1,h2,h3,h4,p{margin:0}
   border:1px solid var(--border);display:flex;flex-direction:column;transition:all .2s;min-width:0;
 }
 .gtile:hover{border-color:var(--border-2);transform:translateY(-1px)}
-.gtile .imgwrap{position:relative;aspect-ratio:1/1}
+.gtile .imgwrap{position:relative;aspect-ratio:4/5}
 .gtile .thumb{width:100%;height:100%}
 .gtile .imgwrap .score{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.6)}
 .gtile .imgwrap .dlcflag{position:absolute;top:9px;left:8px;background:rgba(0,0,0,0.6)}
@@ -488,7 +488,7 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
 .grab i{width:40px;height:4px;border-radius:9px;background:var(--border-2)}
 .sheet-body{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 18px calc(30px + env(safe-area-inset-bottom))}
 .mhero{
-  position:relative;height:172px;margin:6px -18px 0;overflow:hidden;
+  position:relative;height:236px;margin:6px -18px 0;overflow:hidden;
 }
 .mhero .thumb{width:100%;height:100%}
 .mhero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6) 45%,#0a0a0a 100%)}
@@ -525,7 +525,7 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
 /* ---- Modal extras v2.2.0: screenshots, stores, community, alt names ---- */
 .shots{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;-webkit-overflow-scrolling:touch}
 .shots img{
-  height:88px;width:auto;border-radius:var(--radius-sm);flex:0 0 auto;
+  height:116px;width:auto;border-radius:var(--radius-sm);flex:0 0 auto;
   border:1px solid var(--border);background:var(--surface-2);
   scroll-snap-align:start;object-fit:cover;
 }
@@ -582,11 +582,11 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
 .hb .i .lab .n{color:var(--text-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
 .hb .i .lab .c{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums;flex:0 0 auto}
 .hb .i .tr{height:7px;border-radius:9px;background:var(--border);overflow:hidden}
-.hb .i .fl{height:100%;border-radius:9px;background:var(--accent);width:0;transition:width .8s cubic-bezier(.22,1,.36,1)}
+.hb .i .fl{height:100%;border-radius:9px;background:linear-gradient(90deg,rgba(232,123,10,.55),var(--accent));width:0;transition:width .8s cubic-bezier(.22,1,.36,1)}
 
 .vb{display:flex;align-items:flex-end;gap:5px;height:126px;padding-top:16px}
 .vb .c{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
-.vb .c .bar{width:100%;border-radius:6px 6px 2px 2px;background:var(--accent);min-height:3px;transition:height .8s cubic-bezier(.22,1,.36,1);position:relative}
+.vb .c .bar{width:100%;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--accent-2),var(--accent));min-height:3px;transition:height .8s cubic-bezier(.22,1,.36,1);position:relative}
 .vb .c .n{position:absolute;top:-15px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:600;color:var(--text-2);white-space:nowrap}
 .vbx{display:flex;gap:5px;margin-top:7px}
 .vbx .x{flex:1;text-align:center;font-size:8.5px;color:var(--text-3);font-weight:600;overflow:hidden;white-space:nowrap;min-width:0}
@@ -827,7 +827,7 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
 
 var GH_JSON_URL = "https://api.github.com/repos/salman478atomic/HermesBackup/contents/ps3_games.json";
 var GH_TOKEN    = "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";           /* placeholder token */
-var APP_VERSION = "2.2.0";
+var APP_VERSION = "2.3.0";
 var PAGE_SIZE   = 100;
 
 /* ---------- state ---------- */
@@ -1374,9 +1374,9 @@ function statusBtns(g,mini){
     return '<button class="'+(cur===k?"on":"")+'" data-st="'+k+'" data-t="'+t+'">'+ico+lab+'</button>';
   }
   return '<div class="st'+(mini?" mini":"")+'">'+
-    b("played","Played",'<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>')+
-    b("playing","Playing",'<svg viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20" fill="currentColor" stroke="none"/></svg>')+
-    b("willplay","Will Play",'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg>')+
+    b("played","Played",'<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.6 2.6 5 6.2 5c2.2 0 3.7 1.2 4.6 2.6l1.2 1.7 1.2-1.7C14.1 6.2 15.6 5 17.8 5c3.6 0 5.6 3.6 4.2 6.7C19.5 16.4 12 21 12 21z"/></svg>')+
+    b("playing","Playing",'<svg viewBox="0 0 24 24"><path d="M7 4h3l1.5 5h1L14 4h3l-2.5 7.5L17 19h-3l-1.5-5h-1L10 19H7l2.5-7.5z"/></svg>')+
+    b("willplay","Will Play",'<svg viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>')+
   '</div>';
 }
 function setStatus(title,k){
@@ -1401,7 +1401,7 @@ function subLine(g,parts){
   /* line 2: developer — always its own row, clamped to 2 lines */
   if(parts.developer) out.push(devHtml(g));
   var stats=[];
-  if(parts.user && has(g.user_score)) stats.push('<span class="mstat musr"><svg class="mi" viewBox="0 0 24 24"><path d="M16 19v-1a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v1"/><circle cx="9" cy="7" r="3"/><path d="M22 19v-1a4 4 0 0 0-3-3.9M16 3.1a3 3 0 0 1 0 5.8"/></svg><b>'+esc(fmt(g.user_score))+'</b><i>USER</i></span>');
+  if(parts.user && has(g.user_score)) stats.push('<span class="mstat musr"><svg class="mi" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6-5.4-3-5.4 3 1.1-6L3.2 9.4l6.1-.8z"/></svg><b>'+esc(fmt(g.user_score))+'</b><i>USER</i></span>');
   if(parts.playtime && has(g.playtime)) stats.push('<span class="mstat mtime"><svg class="mi" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>'+esc(fmt(g.playtime))+'h</span>');
   if(parts.year && has(g.year)) stats.push('<span class="mstat myr"><svg class="mi" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>'+esc(g.year)+'</span>');
   if(stats.length) out.push('<span class="mstats">'+stats.join('')+'</span>');
@@ -1512,6 +1512,19 @@ function kvBlock(title,rows){
   return '<div class="mblock"><div class="mh">'+esc(title)+'</div><div class="kv">'+body+'</div></div>';
 }
 
+/* icon per community metric (matched to meaning, not one generic glyph) */
+var COMM_ICONS = {
+  "in Libraries": '<path d="M4 4h13a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M8 4v16"/>',
+  "Reviews": '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  "Suggestions": '<path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.7 1 1.5 1 2.5h6c0-1 .2-1.8 1-2.5A6 6 0 0 0 12 3z"/>',
+  "Games in Series": '<rect x="2.5" y="7" width="8" height="8" rx="2"/><rect x="13.5" y="7" width="8" height="8" rx="2"/>',
+  "YouTube": '<path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.5 12 5.5 12 5.5s-6 0-7.9.6A3 3 0 0 0 2 8.2 31 31 0 0 0 1.7 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.6 7.9.6 7.9.6s6 0 7.9-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22.3 12 31 31 0 0 0 22 8.2z"/><path d="M10 9.5v5l4.5-2.5z"/>',
+  "Twitch": '<path d="M4 3h16v11l-4 4h-4l-3 3H7v-3H4z"/><path d="M11 8v4M15 8v4"/>',
+  "Reddit": '<circle cx="12" cy="14" r="7"/><circle cx="9.5" cy="13.5" r=".9" fill="currentColor" stroke="none"/><circle cx="14.5" cy="13.5" r=".9" fill="currentColor" stroke="none"/><path d="M9.5 16.5c1.5 1 3.5 1 5 0"/><path d="M15 7l1-4 3.5 1"/>',
+  "DLC/Add-ons": '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 15h4"/>',
+  "default": '<path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'
+};
+
 function openGame(title){
   var g=byTitle[title];
   if(!g){ toast("Entry not found","err"); return; }
@@ -1584,7 +1597,7 @@ function openGame(title){
   if(stores.length){
     h+='<div class="mblock"><div class="mh">Available on</div><div class="storechips">'+
        stores.map(function(s){
-         return '<span class="storechip"><svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 8h-12z"/><path d="M6 6L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>'+esc(s)+'</span>';
+         return '<span class="storechip"><svg viewBox="0 0 24 24"><path d="M4 7l1.7-4h12.6L20 7"/><path d="M4 7h16v3a2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 1-5 0z"/><path d="M5 12v8h14v-8"/><path d="M9 20v-5h6v5"/></svg>'+esc(s)+'</span>';
        }).join("")+'</div></div>';
   }
 
@@ -1602,7 +1615,8 @@ function openGame(title){
   if(comm.length){
     h+='<div class="mblock"><div class="mh">Community & Reach</div><div class="comm">'+
        comm.slice(0,8).map(function(c){
-         return '<div class="cc"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'+
+         var ico = COMM_ICONS[c[1]] || COMM_ICONS.default;
+         return '<div class="cc"><svg viewBox="0 0 24 24">'+ico+'</svg>'+
                 '<div class="cv"><b>'+c[0]+'</b><span>'+esc(c[1])+'</span></div></div>';
        }).join("")+'</div></div>';
   }
@@ -1797,13 +1811,20 @@ function renderStats(){
   var gen=topN(countBy("genres"),12);
   h+=chartBox("Genre Distribution","count per genre",hbars(gen));
 
-  /* 2 release years */
+  /* 2 release years — gapless: missing years are filled with 0 so bars run continuous */
   var yc=countBy("year");
   var years=Object.keys(yc).map(Number).filter(function(x){return !isNaN(x);}).sort(function(a,b){return a-b;});
-  var ypairs=years.map(function(y){ return [String(y), yc[String(y)]]; });
+  var ypairs=[];
+  if(years.length){
+    for(var yv=years[0]; yv<=years[years.length-1]; yv++){
+      ypairs.push([String(yv), yc[String(yv)]||0]);
+    }
+  }
+  var peakYear=ypairs.reduce(function(a,p){ return p[1]>a[1]?p:a; },["—",0]);
+  var peakLbl = peakYear[0].length===4 ? "'"+peakYear[0].slice(2)+" ×"+peakYear[1] : "";
   var step = ypairs.length>18 ? Math.ceil(ypairs.length/18) : 1;
   var yshown = ypairs.filter(function(_,i){ return step===1 || i%step===0 || i===ypairs.length-1; });
-  h+=chartBox("Releases by Year",years.length+" years",vbars(yshown.map(function(p){ return [p[0].slice(2),p[1]]; })));
+  h+=chartBox("Releases by Year", years.length+" years · peak "+peakLbl, vbars(yshown.map(function(p){ return [p[0].slice(2),p[1]]; })));
 
   /* 3 + 4 score bands */
   function bands(field){
@@ -1847,6 +1868,37 @@ function renderStats(){
     .filter(Boolean)
     .sort(function(a,b){ return b[1]-a[1]; }).slice(0,10);
   h+=chartBox("Most DLC","top 10 by RAWG additions_count", dl.length?hbars(dl):'<div class="empty"><div class="s">No DLC counts in this dataset.</div></div>');
+
+  /* 14 community status — how RAWG players report playing each title */
+  function sumStatus(key){
+    var t=0;
+    GAMES.forEach(function(g){
+      var s=g._raw && g._raw.added_by_status;
+      if(!s) return;
+      var mm=s.match(new RegExp(key+'[^0-9]*([0-9.]+)'));
+      if(mm) t+=parseFloat(mm[1]);
+    });
+    return t;
+  }
+  var stKeys=["owned","beaten","playing","dropped","toplay","yet"];
+  var stTotals=stKeys.map(function(k){ return [k, sumStatus(k)]; }).filter(function(p){ return p[1]>0; });
+  if(stTotals.length){
+    h+=chartBox("Community Status","total across RAWG players",hbars(stTotals));
+  }
+
+  /* 15 playtime profile — how long these games take to beat */
+  var buckets=[[0,5,"<5h"],[5,10,"5–10h"],[10,20,"10–20h"],[20,40,"20–40h"],[40,60,"40–60h"],[60,1e9,"60h+"]];
+  var bc={};
+  GAMES.forEach(function(g){
+    var v=num(g.playtime); if(v===null) return;
+    for(var bi=0;bi<buckets.length;bi++){
+      if(v>=buckets[bi][0] && v<buckets[bi][1]){ bc[buckets[bi][2]]=(bc[buckets[bi][2]]||0)+1; break; }
+    }
+  });
+  var bpairs=buckets.map(function(b){ return [b[2], bc[b[2]]||0]; }).filter(function(p,i){ return p[1]>0 || i<buckets.length-1; });
+  if(Object.keys(bc).length){
+    h+=chartBox("Playtime Profile","main-story hours, all games",hbars(bpairs));
+  }
 
   h+='</div>';
   $("statsbody").innerHTML=h;
