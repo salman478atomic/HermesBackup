@@ -8,9 +8,7 @@ User runs Hermes on Railway (9router → Telegram bot). Railway trial expired ~A
 §
 Volume-wipe incident: Kaggle download filled the Railway volume (agent misjudged space); user deleted volume → everything after Aug 27 backup lost. LESSON: check df -h before big downloads; /data volume is only ~434MB while / (overlay) has ~1TB — download/process in /tmp, keep only small results in /data.
 §
-User doubted a 'mirror' of the 1.86GB Kaggle CSV; prefers official sources. kagglehub works anonymously for public datasets.
-§
-PS3: db = 3209 RAWG games × 54 fields; app v2.1.0 = user's Namida-UI redesign (AMOLED black + copper #E87B0A, 1 style block) as base, merged with RAWG data layer (adapter on both load paths, cover art, released/achievements/links; user_score=rating/5×100 clamp 100; adapter ≡ converter 0-mismatch). User sends latest app version via Telegram — it lands in /data/.hermes/cache/documents/. Converter: ~/.hermes/scripts/rawg_to_app.py.
+PS3: db = 3209 RAWG games × 54 fields; app v2.1.0 = Namida-UI (AMOLED black + copper #E87B0A, 1 style block) + RAWG layer (adapter on both load paths, user_score=rating/5×100 clamp 100). Latest app arrives via Telegram → /data/.hermes/cache/documents/. Converter: ~/.hermes/scripts/rawg_to_app.py. Verified Sep 1: 37/37 Node tests, adapter≡converter 0-mismatch (300×23 fields), JSON URL 200. Cosmetic: .bands/.donut/.legend/.lol chart wrappers unstyled since v1.0.0. Rig: /tmp/ps3check/test.js (script blocks + vm.runInThisContext + DOM stubs).
 §
 Backup: 12h cron → ~/.hermes/scripts/hermes_backup.sh. K-Dense sci skills installed (4, at skills/science/): polars, EDA, database-lookup, scientific-visualization. Source: github.com/K-Dense-AI/scientific-agent-skills (163 skills, 30MB). Install more on demand — no full install (prompt bloat + 1GB RAM).
 §
