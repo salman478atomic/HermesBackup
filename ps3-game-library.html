@@ -894,7 +894,7 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
 
 var GH_JSON_URL = "https://api.github.com/repos/salman478atomic/HermesBackup/contents/ps3_games.json";
 var GH_TOKEN    = "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";           /* placeholder token */
-var APP_VERSION = "2.5.2";
+var APP_VERSION = "2.5.3";
 var PAGE_SIZE   = 100;
 
 /* ---------- state ---------- */
@@ -979,7 +979,7 @@ function scoreBadge(s,cls){
 /* ---------- deterministic SVG cover art ---------- */
 function hashStr(s){ var h=0; for(var i=0;i<s.length;i++){ h=(h*31 + s.charCodeAt(i))|0; } return Math.abs(h); }
 function coverFor(title, img){
-  if(img) return img;
+  if(img && /^https:\/\//i.test(String(img))) return img;
   var t = title||"?";
   var h = hashStr(t);
   var h1 = h%360, h2 = (h1 + 40 + (h%70))%360;
@@ -1347,10 +1347,10 @@ function renderHero(){
   $("hero").innerHTML = list.map(function(g,i){
     var gen=splitList(g.genres).slice(0,2);
     return '<button class="hero-card" data-open="'+esc_attr(g.title)+'">'+
-      (g.background_image?'<img class="bg" src="'+esc_attr(g.background_image)+'" alt="">':'<div class="bg"></div>')+
+      '<img class="bg" src="'+coverFor(g.title, g.background_image)+'" alt="">'+
       '<div class="veil"></div>'+
       '<div class="row2">'+
-      (g.background_image?'<img class="fg" src="'+esc_attr(g.background_image)+'" alt="">':'')+
+      '<img class="fg" src="'+coverFor(g.title, g.background_image)+'" alt="">'+
       '<div class="hero-info">'+
       '<span class="rank">#'+(i+1)+' TOP RATED</span>'+
         '<h3>'+esc(g.title)+'</h3>'+
@@ -1618,7 +1618,7 @@ function openGame(title){
   /* header */
   h+='<div class="mhero"><img class="thumb" src="'+coverFor(g.title, g.background_image)+'" alt="">'+
      '<div class="veil"></div>'+
-     (g.background_image?'<img class="mimg" src="'+esc_attr(g.background_image)+'" alt="" data-lb="1" data-cap="'+esc_attr(g.title)+'">':"")+
+     (String(g.background_image||"").indexOf("http")===0?'<img class="mimg" src="'+esc_attr(g.background_image)+'" alt="" data-lb="1" data-cap="'+esc_attr(g.title)+'">':"")+
      '<button class="mclose" onclick="closeSheet()" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></button>'+
      '<div class="cap"><h2>'+esc(g.title)+'</h2><div class="badges">'+
        (has(g.critic_score)?scoreBadge(g.critic_score):"")+
@@ -2041,11 +2041,21 @@ function go(name){
 /* ============================================================================
    EVENT WIRING + BOOT
    ============================================================================ */
+function imgFail(el){
+  el.onerror = null;
+  el.src = coverFor(el.getAttribute("alt") || "", null);
+}
 function wire(){
   /* nav */
   document.querySelectorAll(".nav button").forEach(function(b){
     b.addEventListener("click", function(){ go(b.getAttribute("data-nav")); });
   });
+
+  /* any broken image -> deterministic SVG placeholder */
+  document.addEventListener("error", function(e){
+    var t = e.target;
+    if(t && t.tagName === "IMG" && t.src && t.src.indexOf("data:") !== 0) imgFail(t);
+  }, true);
 
   /* search */
   var q=$("q");
@@ -2263,6 +2273,8 @@ function rawgAdapter(list){
   (list||[]).forEach(function(r){
     if(!r) return;
     if(r._adapter){
+      /* sanitize even pre-normalized records: cached data may carry legacy "nan" strings */
+      if(r.background_image && !/^https:\/\//i.test(String(r.background_image))) r.background_image=null;
       var k0=rawKey(r);
       if(!seen[k0]){ seen[k0]=1; out.push(r); }
       return;
@@ -2309,7 +2321,7 @@ function rawgAdapter(list){
       content_rating: contentRating,
       series: r.series || null,
       achievements_count: num2(raw.achievements_count)===null?null:Math.round(num2(raw.achievements_count)),
-      background_image: raw.background_image || r.background_image || null,
+      background_image: (/^https:\/\//i.test(String(raw.background_image)) ? raw.background_image : (/^https:\/\//i.test(String(r.background_image)) ? r.background_image : null)),
       website: raw.website || r.website || null,
       reddit_url: raw.reddit_url || r.reddit_url || null,
       metacritic_url: raw.metacritic_url || r.metacritic_url || null,
