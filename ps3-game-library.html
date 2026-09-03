@@ -611,17 +611,18 @@ body.sheet-open{overflow:hidden}
   border:1px solid var(--border); box-shadow:0 0 0 1px rgba(232,123,10,0.08);position:relative;overflow:hidden;transition:all .2s;
 }
 .bento .b:hover{border-color:rgba(232,123,10,.5);box-shadow:0 0 0 1px rgba(232,123,10,.12),0 8px 24px -14px rgba(232,123,10,.3)}
-/* ═══ Consistent partial accent outline: 3px copper top-bar on every card ═══ */
-.row,.gcard,.gtile,.bento .b,.kv,.revcard,.desc,.shero .cell,.comm .cc,.dlcitem,.tblwrap{
-  position:relative;
+/* ── Corner accent: small copper bracket on card top-left (subtle, partial, consistent) ── */
+.row,.gcard,.gtile,.bento .b,.kv,.revcard,.shero .cell,.comm .cc,.dlcitem,.tblwrap{position:relative}
+.row::after,.gcard::after,.gtile::after,.bento .b::after,.kv::after,.revcard::after,
+.shero .cell::after,.comm .cc::after,.dlcitem::after,.tblwrap::after{
+  content:"";position:absolute;top:0;left:0;width:26px;height:2px;
+  background:linear-gradient(90deg,var(--accent),rgba(232,123,10,0));
+  opacity:.5;pointer-events:none;border-radius:0 2px 2px 0;
 }
-.row::before,.gcard::before,.gtile::before,.bento .b::before,.kv::before,.revcard::before,
-.desc::before,.shero .cell::before,.comm .cc::before,.dlcitem::before,.tblwrap::before{
-  content:"";position:absolute;top:0;left:14px;right:14px;height:2px;border-radius:0 0 3px 3px;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2) 60%,transparent);
-  opacity:.55;pointer-events:none;z-index:2;
-}
-.gcard::before,.gtile::before{left:0;right:0;border-radius:0}   /* قاب عکس‌دار: تمام‌عرض بالای کارت */
+.row:hover::after,.gcard:hover::after,.gtile:hover::after,.bento .b:hover::after,
+.dlcitem:hover::after{opacity:1;width:44px;transition:all .25s}
+
+
 
 .bento .b.w2{grid-column:span 2}
 .bento .b .v{font-size:25px;font-weight:700;letter-spacing:-.05em;line-height:1.05;color:var(--text)}
