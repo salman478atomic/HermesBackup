@@ -806,3 +806,307 @@ telegram.error.TimedOut: Timed out
 2026-09-01 18:07:53,718 ERROR [20260901_155011_7bf997bb] agent.conversation_loop: Non-retryable client error: Provider has been unresponsive (no response received) for 5 consecutive stale attempts — aborting this call to avoid an indefinite stall. Switch models or start a new session, then retry.
 2026-09-02 08:15:40,567 WARNING plugins.platforms.telegram.telegram_network: [Telegram] Sticky Telegram path 149.154.166.110 failed; re-walking IPv4 literals before the hostname
 2026-09-02 08:15:40,568 WARNING plugins.platforms.telegram.telegram_network: [Telegram] IPv4 Telegram API IP 149.154.166.110 failed: 
+2026-09-02 15:04:01,169 WARNING plugins.platforms.telegram.telegram_network: [Telegram] Sticky Telegram path api.telegram.org failed; re-walking IPv4 literals before the hostname
+2026-09-02 15:04:01,182 WARNING plugins.platforms.telegram.telegram_network: [Telegram] Dual-stack api.telegram.org path failed ()
+2026-09-02 15:04:11,219 WARNING plugins.platforms.telegram.telegram_network: [Telegram] Using sticky IPv4 Telegram API path 149.154.166.110 (dual-stack hostname tried last — #87015)
+2026-09-02 15:36:05,314 WARNING [20260901_155011_7bf997bb] agent.chat_completion_helpers: Non-streaming API call stale for 150s (threshold 150s). model=Seekai0731 context=~71,856 tokens. Killing connection.
+2026-09-02 15:36:05,320 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 1/3) error_type=ReadError thread=hermes-gateway_0:139858382141120 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=[Errno 32] Broken pipe
+2026-09-02 15:36:05,320 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 2.5598397600833964s (attempt 1/3) thread=hermes-gateway_0:139858382141120 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=[Errno 32] Broken pipe
+2026-09-02 15:38:38,113 WARNING [20260901_155011_7bf997bb] agent.chat_completion_helpers: Non-streaming API call stale for 150s (threshold 150s). model=Seekai0731 context=~71,856 tokens. Killing connection.
+2026-09-02 15:38:38,123 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 2/3) error_type=ReadError thread=hermes-gateway_0:139858382141120 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=[Errno 32] Broken pipe
+2026-09-02 15:38:38,123 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 5.052965941808619s (attempt 2/3) thread=hermes-gateway_0:139858382141120 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=[Errno 32] Broken pipe
+2026-09-02 15:41:13,557 WARNING [20260901_155011_7bf997bb] agent.chat_completion_helpers: Non-streaming API call stale for 150s (threshold 150s). model=Seekai0731 context=~71,856 tokens. Killing connection.
+2026-09-02 15:41:13,561 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 3/3) error_type=ReadError thread=hermes-gateway_0:139858382141120 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=[Errno 32] Broken pipe
+2026-09-02 15:41:13,566 ERROR [20260901_155011_7bf997bb] agent.conversation_loop: API call failed after 3 retries. [Errno 32] Broken pipe | provider=openai-api model=Seekai0731 msgs=141 tokens=~67,266
+2026-09-02 17:29:05,069 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool execute_code returned error (0.02s): {"status": "error", "output": "\n--- stderr ---\nTraceback (most recent call last):\n  File \"/tmp/hermes_kernel_banc1qr7/hermes_kernel_runner.py\", line 67, in main\n    exec(compile(request[\"code\"
+2026-09-02 17:34:08,345 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool memory returned error (0.01s): {"success": false, "error": "Operation 1 (unknown): unknown action. Use add, replace, or remove. No operations were applied (batch is all-or-nothing).", "current_entries": ["User is \"S\" — communicat
+2026-09-02 17:34:20,475 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool memory returned error (0.00s): {"success": false, "error": "Operation 1 (unknown): unknown action. Use add, replace, or remove. No operations were applied (batch is all-or-nothing).", "current_entries": ["User is \"S\" — communicat
+2026-09-02 17:34:53,675 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1271 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 17:40:13,963 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.18s): {"success": false, "error": "operations[0] (create on 'single-file-html-apps') failed: Description is 154 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger first, end
+2026-09-02 17:40:57,515 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.09s): {"success": false, "error": "operations[0] (create on 'single-file-html-apps') failed: Description is 137 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger first, end
+2026-09-02 17:41:37,732 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.05s): {"success": false, "error": "operations[0] (create on 'single-file-html-apps') failed: Description is 88 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger first, ends
+2026-09-02 17:48:30,701 WARNING agent.auxiliary_client: Auxiliary vision (async): connection error on openai-api and all fallbacks exhausted (fallback_chain + main agent model). Raising original error.
+2026-09-02 17:48:30,702 ERROR tools.vision_tools: Error analyzing image: Request timed out.
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1604, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/hermes-agent/tools/vision_tools.py", line 1606, in vision_analyze_tool
+    response = await async_call_llm(**call_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/auxiliary_client.py", line 3607, in wrapped
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/auxiliary_client.py", line 10954, in async_call_llm
+    return await _async_call_llm_impl(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/auxiliary_client.py", line 11156, in _async_call_llm_impl
+    await _relay_async_completion(
+  File "/opt/hermes-agent/agent/auxiliary_client.py", line 3706, in _relay_async_completion
+    return await relay_llm.execute_current_async(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/relay_llm.py", line 295, in execute_current_async
+    return await execute_async(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/relay_llm.py", line 178, in execute_async
+    return await callback(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/auxiliary_client.py", line 11124, in _acreate
+    return await client.chat.completions.create(**_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 2700, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1622, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+2026-09-02 17:48:30,803 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool vision_analyze returned error (240.56s): {
+  "success": false,
+  "error": "Error analyzing image: Request timed out.",
+  "analysis": "There was a problem with the request and the image could not be analyzed. Error: Request timed out."
+}
+2026-09-02 17:51:19,579 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=562 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 18:19:01,683 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool execute_code returned error (0.01s): {"status": "error", "output": "\n--- stderr ---\nTraceback (most recent call last):\n  File \"/tmp/hermes_kernel_banc1qr7/hermes_kernel_runner.py\", line 67, in main\n    exec(compile(request[\"code\"
+2026-09-02 18:19:54,096 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool memory returned error (0.01s): {"success": false, "error": "Replacement would put memory at 2,254/2,200 chars. Shorten the new content, or 'remove' other stale or less important entries to make room (see current_entries below), the
+2026-09-02 18:20:29,120 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1655 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 18:22:58,362 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.05s): {"success": false, "error": "operations[0] (create on 'single-file-webapp-verification') failed: Description is 151 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger 
+2026-09-02 18:23:40,377 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.05s): {"success": false, "error": "operations[0] (create on 'single-file-webapp-verification') failed: Frontmatter must include 'description' field. — batch aborted, all touched skills rolled back.", "faile
+2026-09-02 18:24:16,797 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.04s): {"success": false, "error": "operations[0] (create on 'single-file-webapp-verification') failed: Description is 78 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger f
+2026-09-02 18:24:53,911 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.04s): {"success": false, "error": "operations[0] (create on 'single-file-webapp-verification') failed: Description is 67 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger f
+2026-09-02 18:25:31,976 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.05s): {"success": false, "error": "operations[0] (create on 'single-file-webapp-verification') failed: Description is 63 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger f
+2026-09-02 18:43:31,408 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool memory returned error (0.01s): {"success": false, "error": "No entry matched 'PS3: db = 3209 RAWG games × 54 fields; app v2.3.0 = Namida-UI (AMOLED + copper #E87B0A, 1 style block) + RAWG layer (adapter on both paths, user_score=ra
+2026-09-02 18:44:06,837 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1205 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 18:49:38,718 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.00s): {"error": "operations[0] needs an 'action'.", "success": false}
+2026-09-02 18:49:57,021 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.21s): {"success": false, "error": "operations[2] (patch on 'single-file-html-apps') failed: Could not find a match for old_string in the file\n\nDid you mean one of these sections?\n  25| \"Page grows sidew
+2026-09-02 18:50:31,947 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.10s): {"success": false, "error": "operations[0] (patch on 'single-file-html-apps') failed: Could not find a match for old_string in the file\n\nDid you mean one of these sections?\n  27| - Add `min-width:0
+2026-09-02 18:50:59,129 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.06s): {"success": false, "error": "operations[0] (patch on 'single-file-html-apps') failed: Could not find a match for old_string in the file\n\nDid you mean one of these sections?\n  25| \"Page grows sidew
+2026-09-02 18:51:17,649 WARNING agent.model_metadata: Could not determine context length for model 'Seekai0731' (base_url=https://9router-production-2cd61.up.railway.app/v1/) — falling back to 256,000 tokens. Set model.context_length in config.yaml to override.
+2026-09-02 18:57:16,533 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool execute_code returned error (0.01s): {"status": "error", "output": "\n--- stderr ---\nTraceback (most recent call last):\n  File \"/tmp/hermes_kernel_banc1qr7/hermes_kernel_runner.py\", line 67, in main\n    exec(compile(request[\"code\"
+2026-09-02 19:01:57,791 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1158 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 19:04:29,700 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.04s): {"success": false, "error": "operations[0] (create on 'single-file-webapp') failed: Description is 149 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger first, ends w
+2026-09-02 19:12:06,012 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.34s): {"success": false, "error": "operations[4] (patch on 'single-file-html-apps') failed: Could not find a match for old_string in the file — batch aborted, all touched skills rolled back.", "failed_index
+2026-09-02 19:12:43,811 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.29s): {"success": false, "error": "operations[4] (patch on 'single-file-html-apps') failed: Could not find a match for old_string in the file — batch aborted, all touched skills rolled back.", "failed_index
+2026-09-02 19:13:20,716 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.08s): {"success": false, "error": "operations[0] (patch on 'single-file-html-apps') failed: Could not find a match for old_string in the file — batch aborted, all touched skills rolled back.", "failed_index
+2026-09-02 19:18:25,361 WARNING agent.auxiliary_client: Auxiliary vision (async): connection error on openai-api and all fallbacks exhausted (fallback_chain + main agent model). Raising original error.
+2026-09-02 19:18:25,361 ERROR tools.vision_tools: Error analyzing image: Request timed out.
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1604, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/opt/venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/hermes-agent/tools/vision_tools.py", line 1606, in vision_analyze_tool
+    response = await async_call_llm(**call_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/auxiliary_client.py", line 3607, in wrapped
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/auxiliary_client.py", line 10954, in async_call_llm
+    return await _async_call_llm_impl(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/auxiliary_client.py", line 11156, in _async_call_llm_impl
+    await _relay_async_completion(
+  File "/opt/hermes-agent/agent/auxiliary_client.py", line 3706, in _relay_async_completion
+    return await relay_llm.execute_current_async(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/relay_llm.py", line 295, in execute_current_async
+    return await execute_async(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/relay_llm.py", line 178, in execute_async
+    return await callback(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hermes-agent/agent/auxiliary_client.py", line 11124, in _acreate
+    return await client.chat.completions.create(**_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 2700, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1884, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.11/site-packages/openai/_base_client.py", line 1622, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+2026-09-02 19:18:25,407 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool vision_analyze returned error (240.38s): {
+  "success": false,
+  "error": "Error analyzing image: Request timed out.",
+  "analysis": "There was a problem with the request and the image could not be analyzed. Error: Request timed out."
+}
+2026-09-02 19:20:23,859 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool execute_code returned error (0.01s): {"status": "error", "output": "\n--- stderr ---\nTraceback (most recent call last):\n  File \"/tmp/hermes_kernel_banc1qr7/hermes_kernel_runner.py\", line 67, in main\n    exec(compile(request[\"code\"
+2026-09-02 19:22:06,564 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1181 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 19:27:56,494 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1006 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 19:29:46,278 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool skill_manage returned error (0.03s): {"success": false, "error": "operations[0] (create on 'single-file-webapp-maintenance') failed: Description is 151 chars — new skills must fit the 60-char system-prompt budget (one sentence, trigger f
+2026-09-02 19:31:24,341 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool execute_code returned error (0.01s): {"status": "error", "output": "\n--- stderr ---\nTraceback (most recent call last):\n  File \"/tmp/hermes_kernel_banc1qr7/hermes_kernel_runner.py\", line 67, in main\n    exec(compile(request[\"code\"
+2026-09-02 19:32:13,631 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool execute_code returned error (0.02s): {"status": "error", "output": "\n--- stderr ---\nTraceback (most recent call last):\n  File \"/tmp/hermes_kernel_banc1qr7/hermes_kernel_runner.py\", line 67, in main\n    exec(compile(request[\"code\"
+2026-09-02 19:34:23,824 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool memory returned error (0.01s): {"success": false, "error": "Replacement would put memory at 2,216/2,200 chars. Shorten the new content, or 'remove' other stale or less important entries to make room (see current_entries below), the
+2026-09-02 19:34:57,360 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1092 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 19:44:53,291 WARNING [20260901_155011_7bf997bb] agent.chat_completion_helpers: Non-streaming API call stale for 90s (threshold 90s). model=Seekai0731 context=~35,506 tokens. Killing connection.
+2026-09-02 19:44:53,298 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 1/3) error_type=ReadError thread=bg-review:139857980004032 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=[Errno 32] Broken pipe
+2026-09-02 19:44:53,299 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 2.826005078886644s (attempt 1/3) thread=bg-review:139857980004032 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=[Errno 32] Broken pipe
+2026-09-02 19:46:26,442 WARNING [20260901_155011_7bf997bb] agent.chat_completion_helpers: Non-streaming API call stale for 90s (threshold 90s). model=Seekai0731 context=~35,506 tokens. Killing connection.
+2026-09-02 19:46:26,450 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 2/3) error_type=ReadError thread=bg-review:139857980004032 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=[Errno 32] Broken pipe
+2026-09-02 19:46:26,450 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 5.246900745026524s (attempt 2/3) thread=bg-review:139857980004032 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 policy=default error=[Errno 32] Broken pipe
+2026-09-02 19:48:01,960 WARNING [20260901_155011_7bf997bb] agent.chat_completion_helpers: Non-streaming API call stale for 90s (threshold 90s). model=Seekai0731 context=~35,506 tokens. Killing connection.
+2026-09-02 19:48:01,971 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 3/3) error_type=ReadError thread=bg-review:139857980004032 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=Seekai0731 summary=[Errno 32] Broken pipe
+2026-09-02 19:48:01,972 ERROR [20260901_155011_7bf997bb] agent.conversation_loop: API call failed after 3 retries. [Errno 32] Broken pipe | provider=openai-api model=Seekai0731 msgs=55 tokens=~27,656
+2026-09-02 19:50:46,932 WARNING agent.model_metadata: Could not determine context length for model 'FableHermes' (base_url=https://9router-production-2cd61.up.railway.app/v1) — falling back to 256,000 tokens. Set model.context_length in config.yaml to override.
+2026-09-02 19:51:23,293 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Stored system prompt for session 20260901_155011_7bf997bb is null; rebuilding from scratch this turn. Prefix cache will miss until the rebuild persists. Investigate the previous turn's update_system_prompt write path.
+2026-09-02 19:55:25,307 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool execute_code returned error (1.65s): {"status": "error", "output": "[main bd1b423] App v2.5.3 (technical fixes only): reverted v2.5.1/v2.5.2 design changes, kept image repair - REVERTED: all hero/modal/card layout changes from v2.5.1 and
+2026-09-02 19:56:00,811 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=745 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 20:01:10,805 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 1/3) error_type=InternalServerError thread=hermes-gateway_0:139858382141120 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=HTTP 500: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 202609022001025860136038268d9d6P4hed3zz)","type":"new_api_error","param":"","code":"do_request_failed"}} (reset after 30s)
+2026-09-02 20:01:10,806 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 2.755021921521s (attempt 1/3) thread=hermes-gateway_0:139858382141120 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes policy=default error=Error code: 500 - {'error': {'message': '[openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 202609022001025860136038268d9d6P4hed3zz)","type":"new_api_error","param":"","code":"do_request_failed"}} (reset after 30s)'}}
+2026-09-02 20:01:13,811 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 2/3) error_type=InternalServerError thread=hermes-gateway_0:139858382141120 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=HTTP 500: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 2026090220010258601360382 (reset after 27s)
+2026-09-02 20:01:13,812 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 5.002929427249669s (attempt 2/3) thread=hermes-gateway_0:139858382141120 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes policy=default error=Error code: 500 - {'error': {'message': '[openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 2026090220010258601360382 (reset after 27s)'}}
+2026-09-02 20:01:18,995 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 3/3) error_type=InternalServerError thread=hermes-gateway_0:139858382141120 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=HTTP 500: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 2026090220010258601360382 (reset after 22s)
+2026-09-02 20:01:19,000 ERROR [20260901_155011_7bf997bb] agent.conversation_loop: API call failed after 3 retries. HTTP 500: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 2026090220010258601360382 (reset after 22s) | provider=openai-api model=FableHermes msgs=537 tokens=~201,137
+2026-09-02 20:02:00,677 WARNING agent.model_metadata: Could not determine context length for model 'FableHermes' (base_url=https://9router-production-2cd61.up.railway.app/v1/) — falling back to 256,000 tokens. Set model.context_length in config.yaml to override.
+2026-09-02 20:08:05,235 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool patch returned error (1.09s): {"success": false, "error": "Could not find a match for old_string in the file\n\nDid you mean one of these sections?\n 620| .hb .i .lab .n{color:var(--text-2);overflow:hidden;text-overflow:ellipsis;w
+2026-09-02 20:08:06,336 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool patch returned error (1.05s): {"success": false, "error": "Could not find a match for old_string in the file\n\nDid you mean one of these sections?\n 133| .dev .clamp2{color:inherit}\n 134| .dots{display:flex;justify-content:cente
+2026-09-02 20:08:07,580 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool patch returned error (0.98s): {"success": false, "error": "Could not find a match for old_string in the file\n\nDid you mean one of these sections?\n 133| .dev .clamp2{color:inherit}\n 134| .dots{display:flex;justify-content:cente
+2026-09-02 20:08:08,702 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool patch returned error (1.08s): {"success": false, "error": "Could not find a match for old_string in the file\n\nDid you mean one of these sections?\n 133| .dev .clamp2{color:inherit}\n 134| .dots{display:flex;justify-content:cente
+2026-09-02 20:08:09,749 WARNING [20260901_155011_7bf997bb] agent.tool_executor: Tool patch returned error (1.02s): {"success": false, "error": "Could not find a match for old_string in the file\n\nDid you mean one of these sections?\n 133| .dev .clamp2{color:inherit}\n 134| .dots{display:flex;justify-content:cente
+2026-09-02 20:08:54,483 WARNING hermes_cli.plugins: Hook 'post_tool_call' callback _on_post_tool_call skipped after previous timeout or while still running
+2026-09-02 20:13:22,496 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1265 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 20:16:44,857 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 1/3) error_type=InternalServerError thread=bg-review:139856919377600 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=HTTP 500: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 202609022016110573743218268d9d6nrzTYeSy)","type":"new_api_error","param":"","code":"do_request_failed"}} (reset after 30s)
+2026-09-02 20:16:44,858 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 2.632716490030468s (attempt 1/3) thread=bg-review:139856919377600 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes policy=default error=Error code: 500 - {'error': {'message': '[openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 202609022016110573743218268d9d6nrzTYeSy)","type":"new_api_error","param":"","code":"do_request_failed"}} (reset after 30s)'}}
+2026-09-02 20:16:47,764 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 2/3) error_type=InternalServerError thread=bg-review:139856919377600 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=HTTP 500: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 2026090220161105737432182 (reset after 28s)
+2026-09-02 20:16:47,765 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 4.7107727962651555s (attempt 2/3) thread=bg-review:139856919377600 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes policy=default error=Error code: 500 - {'error': {'message': '[openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 2026090220161105737432182 (reset after 28s)'}}
+2026-09-02 20:16:52,650 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 3/3) error_type=InternalServerError thread=bg-review:139856919377600 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=HTTP 500: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 2026090220161105737432182 (reset after 23s)
+2026-09-02 20:16:52,651 ERROR [20260901_155011_7bf997bb] agent.conversation_loop: API call failed after 3 retries. HTTP 500: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [500]: {"error":{"message":"upstream error: do request failed (request id: 2026090220161105737432182 (reset after 23s) | provider=openai-api model=FableHermes msgs=203 tokens=~60,626
+2026-09-02 20:24:01,749 WARNING [20260901_155011_7bf997bb] agent.chat_completion_helpers: Codex stream produced no bytes within TTFB cutoff (120s > 120s, model=FableHermes). Backend accepted the connection but sent no stream events. Killing connection so the retry loop can reconnect.
+2026-09-02 20:24:01,752 WARNING agent.codex_runtime: Codex Responses request failed: serialized_request_body_bytes=243429 stream_opened=false exception_chain=APIConnectionError <- ReadError <- ReadError model=FableHermes
+2026-09-02 20:24:01,758 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 1/3) error_type=APIConnectionError thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=Connection error.
+2026-09-02 20:24:01,759 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 2.8855558814345432s (attempt 1/3) thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes policy=default error=Connection error.
+2026-09-02 20:27:59,465 WARNING [20260901_155011_7bf997bb] agent.chat_completion_helpers: Codex stream produced no bytes within TTFB cutoff (120s > 120s, model=FableHermes). Backend accepted the connection but sent no stream events. Killing connection so the retry loop can reconnect.
+2026-09-02 20:27:59,468 WARNING agent.codex_runtime: Codex Responses request failed: serialized_request_body_bytes=249441 stream_opened=false exception_chain=APIConnectionError <- ReadError <- ReadError model=FableHermes
+2026-09-02 20:27:59,475 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 1/3) error_type=APIConnectionError thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=Connection error.
+2026-09-02 20:27:59,475 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 2.561396695232605s (attempt 1/3) thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes policy=default error=Connection error.
+2026-09-02 20:30:02,357 WARNING [20260901_155011_7bf997bb] agent.chat_completion_helpers: Codex stream produced no bytes within TTFB cutoff (120s > 120s, model=FableHermes). Backend accepted the connection but sent no stream events. Killing connection so the retry loop can reconnect.
+2026-09-02 20:30:02,361 WARNING agent.codex_runtime: Codex Responses request failed: serialized_request_body_bytes=249441 stream_opened=false exception_chain=APIConnectionError <- ReadError <- ReadError model=FableHermes
+2026-09-02 20:30:02,365 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 2/3) error_type=APIConnectionError thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=Connection error.
+2026-09-02 20:30:02,366 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 5.634028594852781s (attempt 2/3) thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes policy=default error=Connection error.
+2026-09-02 20:30:08,299 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 3/3) error_type=InternalServerError thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=HTTP 502: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [502]: fetch connect timeout (reset after 25s)
+2026-09-02 20:30:08,312 ERROR [20260901_155011_7bf997bb] agent.conversation_loop: API call failed after 3 retries. HTTP 502: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [502]: fetch connect timeout (reset after 25s) | provider=openai-api model=FableHermes msgs=202 tokens=~57,750
+2026-09-02 20:30:22,172 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 1/3) error_type=InternalServerError thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=HTTP 502: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [502]: fetch connect timeout (reset after 11s)
+2026-09-02 20:30:22,172 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 2.360556743969358s (attempt 1/3) thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes policy=default error=Error code: 502 - {'error': {'message': '[openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [502]: fetch connect timeout (reset after 11s)'}}
+2026-09-02 20:30:24,671 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 2/3) error_type=InternalServerError thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=HTTP 502: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [502]: fetch connect timeout (reset after 9s)
+2026-09-02 20:30:24,673 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: Retrying API call in 5.9947552489728855s (attempt 2/3) thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes policy=default error=Error code: 502 - {'error': {'message': '[openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [502]: fetch connect timeout (reset after 9s)'}}
+2026-09-02 20:30:30,777 WARNING [20260901_155011_7bf997bb] agent.conversation_loop: API call failed (attempt 3/3) error_type=InternalServerError thread=hermes-gateway_1:139857988396736 provider=openai-api base_url=https://9router-production-2cd61.up.railway.app/v1 model=FableHermes summary=HTTP 502: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [502]: fetch connect timeout (reset after 3s)
+2026-09-02 20:30:30,785 ERROR [20260901_155011_7bf997bb] agent.conversation_loop: API call failed after 3 retries. HTTP 502: [openai-compatible-chat-8ab06640-1bdc-49b5-a8cb-3a11d8f9449a/claude-fable-5-1] [502]: fetch connect timeout (reset after 3s) | provider=openai-api model=FableHermes msgs=203 tokens=~57,816

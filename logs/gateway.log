@@ -350,3 +350,102 @@
 2026-09-02 05:57:40,921 INFO gateway.run: Document cache cleanup: removed 1 stale file(s)
 2026-09-02 08:15:40,567 WARNING plugins.platforms.telegram.telegram_network: [Telegram] Sticky Telegram path 149.154.166.110 failed; re-walking IPv4 literals before the hostname
 2026-09-02 08:15:40,568 WARNING plugins.platforms.telegram.telegram_network: [Telegram] IPv4 Telegram API IP 149.154.166.110 failed: 
+2026-09-02 15:04:01,169 WARNING plugins.platforms.telegram.telegram_network: [Telegram] Sticky Telegram path api.telegram.org failed; re-walking IPv4 literals before the hostname
+2026-09-02 15:04:01,182 WARNING plugins.platforms.telegram.telegram_network: [Telegram] Dual-stack api.telegram.org path failed ()
+2026-09-02 15:04:11,219 WARNING plugins.platforms.telegram.telegram_network: [Telegram] Using sticky IPv4 Telegram API path 149.154.166.110 (dual-stack hostname tried last — #87015)
+2026-09-02 15:33:33,066 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (451 chars)
+2026-09-02 15:33:33,099 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='ببین برنامه یک مشکلی داره، بعضی قسمتا صفحه زیادی بزرگ میشه و مجبور میشم به چپ و ' reply_to_id=None reply_to_text=''
+2026-09-02 15:41:14,042 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=460.9s api_calls=1 response=55 chars
+2026-09-02 15:41:14,044 INFO gateway.run: Transient agent failure in session 20260901_155011_7bf997bb — persisting user message so conversation context is preserved on retry.
+2026-09-02 15:41:14,046 INFO gateway.run: Skipping duplicate user turn (message_id=3057) in session 20260901_155011_7bf997bb
+2026-09-02 15:41:14,128 INFO gateway.platforms.base: [Telegram] Sending response (120 chars) to 2035219030
+2026-09-02 16:42:41,238 INFO gateway.run: Agent cache idle-TTL evict: session=agent:main:telegram:dm:2035219030 (idle=3688s)
+2026-09-02 16:42:41,244 INFO gateway.run: Agent cache idle sweep: evicted 1 agent(s)
+2026-09-02 17:00:53,858 INFO gateway.run: Document cache cleanup: removed 1 stale file(s)
+2026-09-02 17:22:12,104 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (95 chars)
+2026-09-02 17:22:12,129 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='ببین برنامه یک مشکلی داره، بعضی قسمتا صفحه زیادی بزرگ میشه و مجبور میشم به چپ و ' reply_to_id=None reply_to_text=''
+2026-09-02 17:34:53,675 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1271 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 17:34:53,677 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=761.5s api_calls=53 response=1271 chars
+2026-09-02 17:34:53,764 INFO gateway.platforms.base: [Telegram] Sending response (1230 chars) to 2035219030
+2026-09-02 17:34:53,892 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-02 17:43:40,052 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Cached user photo at /data/.hermes/cache/images/img_438f6b90cb97.jpg
+2026-09-02 17:43:40,855 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing photo batch agent:main:telegram:dm:2035219030:photo-burst with 1 image(s)
+2026-09-02 17:43:40,873 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='به developer و جایگیریش دقت کن' reply_to_id=None reply_to_text=''
+2026-09-02 17:43:42,558 INFO gateway.run: Image routing: text (mode=text). Pre-analyzing 1 image(s) via vision_analyze.
+2026-09-02 17:51:19,579 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=562 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 17:51:19,581 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=458.7s api_calls=7 response=562 chars
+2026-09-02 17:51:19,643 INFO gateway.platforms.base: [Telegram] Sending response (521 chars) to 2035219030
+2026-09-02 17:51:19,747 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-02 18:11:32,088 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (1140 chars)
+2026-09-02 18:11:32,105 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='توی view mode 1 در 1 که کارت های بزرگ داره و عکس اصلی مودال عکس بازی ها کات شده.' reply_to_id=None reply_to_text=''
+2026-09-02 18:20:29,120 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1655 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 18:20:29,121 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=537.0s api_calls=30 response=1655 chars
+2026-09-02 18:20:29,263 INFO gateway.platforms.base: [Telegram] Sending response (1614 chars) to 2035219030
+2026-09-02 18:20:29,408 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-02 18:38:12,487 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (481 chars)
+2026-09-02 18:38:12,512 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='میخوام دوباره همون کارهارو انجام بدی چون فکر میکنم به اندازه کافی تلاش نکردی و ف' reply_to_id=None reply_to_text=''
+2026-09-02 18:44:06,837 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1205 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 18:44:06,838 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=354.3s api_calls=18 response=1205 chars
+2026-09-02 18:44:06,921 INFO gateway.platforms.base: [Telegram] Sending response (1164 chars) to 2035219030
+2026-09-02 18:44:07,080 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-02 18:55:15,475 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (225 chars)
+2026-09-02 18:55:15,489 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='دوباره همون کارهارو انجام بده بازم کافی نیست  بعضی ایکون ها هنوزم نامفهومه فقط ب' reply_to_id=None reply_to_text=''
+2026-09-02 19:01:57,791 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1158 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 19:01:57,792 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=402.3s api_calls=29 response=1158 chars
+2026-09-02 19:01:58,011 INFO gateway.platforms.base: [Telegram] Sending response (1117 chars) to 2035219030
+2026-09-02 19:01:58,191 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-02 19:13:50,797 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Cached user photo at /data/.hermes/cache/images/img_8a5fb4423333.jpg
+2026-09-02 19:13:51,598 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing photo batch agent:main:telegram:dm:2035219030:photo-burst with 1 image(s)
+2026-09-02 19:13:51,621 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='این مشکل برای عکس ه داخل مودال پیش اومده  توی بعضی view mode ها عکس ها درست نمای' reply_to_id=None reply_to_text=''
+2026-09-02 19:13:55,479 INFO gateway.run: Image routing: text (mode=text). Pre-analyzing 1 image(s) via vision_analyze.
+2026-09-02 19:22:06,564 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1181 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 19:22:06,565 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=494.9s api_calls=15 response=1181 chars
+2026-09-02 19:22:06,669 INFO gateway.platforms.base: [Telegram] Sending response (1140 chars) to 2035219030
+2026-09-02 19:22:06,775 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-02 19:25:17,928 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (69 chars)
+2026-09-02 19:25:17,950 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='الان عکس هیرو هم خراب شد View mode های مختلف هم درست نمایش داده نمیشه' reply_to_id=None reply_to_text=''
+2026-09-02 19:27:56,494 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1006 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 19:27:56,495 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=158.5s api_calls=10 response=1006 chars
+2026-09-02 19:27:56,562 INFO gateway.platforms.base: [Telegram] Sending response (965 chars) to 2035219030
+2026-09-02 19:27:56,748 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-02 19:30:22,947 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (111 chars)
+2026-09-02 19:30:22,970 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='نگفتم بهتر طراحی کن، گفتم عکس ها درست نمایش داده نمیشن درستشون کن و حتما تست و ب' reply_to_id=None reply_to_text=''
+2026-09-02 19:34:57,360 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1092 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 19:34:57,360 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=274.4s api_calls=21 response=1092 chars
+2026-09-02 19:34:57,438 INFO gateway.platforms.base: [Telegram] Sending response (1051 chars) to 2035219030
+2026-09-02 19:34:57,609 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-02 19:51:22,754 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (83 chars)
+2026-09-02 19:51:22,800 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='میخوام تمام کارهای که از مدل قبلی خواستم ولی نتونست یا اشتباه متوجه شد رو انجام ' reply_to_id=None reply_to_text=''
+2026-09-02 19:56:00,811 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=745 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 19:56:00,811 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=278.0s api_calls=9 response=745 chars
+2026-09-02 19:56:00,903 INFO gateway.platforms.base: [Telegram] Sending response (704 chars) to 2035219030
+2026-09-02 19:56:01,006 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-02 19:59:42,466 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (2215 chars)
+2026-09-02 19:59:42,484 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='الان دوباره پیام هام رو بهت میدم تا چیزایی که گفتم رو درست کنی.   S: توی view mo' reply_to_id=None reply_to_text=''
+2026-09-02 20:01:19,888 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=97.4s api_calls=5 response=240 chars
+2026-09-02 20:01:19,890 INFO gateway.run: Transient agent failure in session 20260901_155011_7bf997bb — persisting user message so conversation context is preserved on retry.
+2026-09-02 20:01:19,896 INFO gateway.run: Skipping duplicate user turn (message_id=3102) in session 20260901_155011_7bf997bb
+2026-09-02 20:01:19,949 INFO gateway.platforms.base: [Telegram] Sending response (120 chars) to 2035219030
+2026-09-02 20:01:46,731 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (9 chars)
+2026-09-02 20:01:46,750 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='ادامه بده' reply_to_id=None reply_to_text=''
+2026-09-02 20:13:22,496 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=1265 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-02 20:13:22,497 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=695.7s api_calls=26 response=1265 chars
+2026-09-02 20:13:22,679 INFO gateway.platforms.base: [Telegram] Sending response (1224 chars) to 2035219030
+2026-09-02 20:13:22,764 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-02 20:20:08,007 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Cached user photo at /data/.hermes/cache/images/img_328bb1685af5.jpg
+2026-09-02 20:20:08,058 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Cached user photo at /data/.hermes/cache/images/img_adf372557d0d.jpg
+2026-09-02 20:20:08,148 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Cached user photo at /data/.hermes/cache/images/img_92bb11a436f3.jpg
+2026-09-02 20:20:08,970 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='باگ هارو ببین توی list, grid, cardعکس ها کات شدن  توی مودال بالای عکس ها مشکل دا' reply_to_id=None reply_to_text=''
+2026-09-02 20:20:13,010 INFO gateway.run: Image routing: text (mode=text). Pre-analyzing 3 image(s) via vision_analyze.
+2026-09-02 20:30:08,736 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=599.8s api_calls=2 response=168 chars
+2026-09-02 20:30:08,739 INFO gateway.run: Transient agent failure in session 20260901_155011_7bf997bb — persisting user message so conversation context is preserved on retry.
+2026-09-02 20:30:08,750 INFO gateway.run: Skipping duplicate user turn (message_id=3123) in session 20260901_155011_7bf997bb
+2026-09-02 20:30:08,865 INFO gateway.platforms.base: [Telegram] Sending response (117 chars) to 2035219030
+2026-09-02 20:30:21,852 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (9 chars)
+2026-09-02 20:30:21,878 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='ادامه بده' reply_to_id=None reply_to_text=''
+2026-09-02 20:30:31,175 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=9.3s api_calls=1 response=167 chars
+2026-09-02 20:30:31,176 INFO gateway.run: Transient agent failure in session 20260901_155011_7bf997bb — persisting user message so conversation context is preserved on retry.
+2026-09-02 20:30:31,182 INFO gateway.run: Skipping duplicate user turn (message_id=3129) in session 20260901_155011_7bf997bb
+2026-09-02 20:30:31,247 INFO gateway.platforms.base: [Telegram] Sending response (117 chars) to 2035219030
+2026-09-02 21:34:04,053 INFO gateway.run: Agent cache idle-TTL evict: session=agent:main:telegram:dm:2035219030 (idle=3813s)
+2026-09-02 21:34:04,053 INFO gateway.run: Agent cache idle sweep: evicted 1 agent(s)
