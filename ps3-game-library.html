@@ -481,8 +481,9 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
   opacity:0;pointer-events:none;transition:opacity .3s;
 }
 .scrim.on{opacity:1;pointer-events:auto}
+body.sheet-open{overflow:hidden}
 .sheet{
-  position:fixed;left:0;right:0;bottom:0;z-index:91;max-height:92vh;
+  position:fixed;left:0;right:0;bottom:0;z-index:91;max-height:92vh;overscroll-behavior:contain;
   background:#0a0a0a;
   border-top:1px solid rgba(232,123,10,0.4);
   border-radius:var(--radius-xl) var(--radius-xl) 0 0;
@@ -550,14 +551,20 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
 }
 #lightbox .lb-close svg{width:16px;height:16px;stroke:var(--text);stroke-width:2.6;fill:none}
 
+/* ---- link rows v2.5.9: real site name + arrow icon ---- */
+.kv .r .v.link svg.lk{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.2;vertical-align:-1px;margin-left:3px}
+
 /* ---- Reviews card v2.5.8: sentiment rings + count bars ---- */
 .revcard{padding:14px;border-radius:var(--radius-md);background:var(--surface);border:1px solid var(--border)}
-.rrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
-.rcell{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px}
-.ring{width:64px;height:64px}
-.ring text{font-family:inherit}
-.rcell .rl{font-size:9.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3)}
-.rcell .rv{font-size:12.5px;font-weight:700;text-transform:capitalize}
+.rrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.spill{
+  --sc:var(--accent);
+  padding:11px 12px;border-radius:var(--radius-md);
+  background:color-mix(in srgb,var(--sc) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--sc) 30%,transparent);
+}
+.spill .sp-l{font-size:9.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3)}
+.spill .sp-v{margin-top:4px;font-size:14px;font-weight:800;letter-spacing:-.01em;color:var(--sc);text-transform:capitalize;line-height:1.25}
 .rbar{margin-top:9px}
 .rbar .rb-top{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--text-2);font-weight:600}
 .rbar .rb-top b{color:var(--text);font-variant-numeric:tabular-nums;font-size:13px}
@@ -604,6 +611,18 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
   border:1px solid var(--border); box-shadow:0 0 0 1px rgba(232,123,10,0.08);position:relative;overflow:hidden;transition:all .2s;
 }
 .bento .b:hover{border-color:rgba(232,123,10,.5);box-shadow:0 0 0 1px rgba(232,123,10,.12),0 8px 24px -14px rgba(232,123,10,.3)}
+/* ═══ Consistent partial accent outline: 3px copper top-bar on every card ═══ */
+.row,.gcard,.gtile,.bento .b,.kv,.revcard,.desc,.shero .cell,.comm .cc,.dlcitem,.tblwrap{
+  position:relative;
+}
+.row::before,.gcard::before,.gtile::before,.bento .b::before,.kv::before,.revcard::before,
+.desc::before,.shero .cell::before,.comm .cc::before,.dlcitem::before,.tblwrap::before{
+  content:"";position:absolute;top:0;left:14px;right:14px;height:2px;border-radius:0 0 3px 3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2) 60%,transparent);
+  opacity:.55;pointer-events:none;z-index:2;
+}
+.gcard::before,.gtile::before{left:0;right:0;border-radius:0}   /* قاب عکس‌دار: تمام‌عرض بالای کارت */
+
 .bento .b.w2{grid-column:span 2}
 .bento .b .v{font-size:25px;font-weight:700;letter-spacing:-.05em;line-height:1.05;color:var(--text)}
 .bento .b .v small{font-size:12px;font-weight:600;color:var(--text-3);letter-spacing:0}
@@ -885,7 +904,7 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
 
 var GH_JSON_URL = "https://api.github.com/repos/salman478atomic/HermesBackup/contents/ps3_games.json";
 var GH_TOKEN    = "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";           /* placeholder token */
-var APP_VERSION = "2.5.8";
+var APP_VERSION = "2.5.9";
 var PAGE_SIZE   = 100;
 
 /* ---------- state ---------- */
@@ -917,7 +936,8 @@ var LABEL = {
   description:"Description", platform_metascores:"Platform Scores",
   released:"Release Date", achievements_count:"Achievements",
   rating:"RAWG Rating", ratings_count:"Ratings", reviews_text_count:"Text Reviews",
-  added:"Added", stores:"Stores", esrb_rating:"ESRB"
+  added:"Added", stores:"Stores", esrb_rating:"ESRB",
+  metacritic_url:"Metacritic Page", website:"Official Website", reddit_url:"Reddit Community"
 };
 var RANGE_FIELDS = ["critic_score","user_score","year","playtime","critic_count","user_score_count","achievements_count"];
 var TEXT_FIELDS  = ["genres","platforms","developer","publisher","content_rating","critic_sentiment","user_score_sentiment","tags","is_dlc"];
@@ -1560,7 +1580,12 @@ function parsePipeImages(s){
 }
 function kvRow(k,v,linkAttr){
   if(!has(v)) return "";
-  var inner = linkAttr ? 'Open ↗' : esc(v);
+  var inner;
+  if(linkAttr){
+    var host = "";
+    try{ host = new URL(v, "https://x.example").hostname.replace(/^www\./,""); }catch(e){ host = String(v).slice(0,28); }
+    inner = esc(host) + ' <svg class="lk" viewBox="0 0 24 24"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>';
+  } else inner = esc(v);
   return '<div class="r"><span class="k">'+esc(k)+'</span>'+
     '<span class="v'+(linkAttr?" link":"")+'"'+(linkAttr||"")+'>'+inner+'</span></div>';
 }
@@ -1632,15 +1657,12 @@ function openGame(title){
     if(s.indexOf("generally")>-1) return "var(--sc-great)";
     return "var(--sc-mixed)";
   };
-  function sentRing(label, s){
+  function sentPill(label, s){
     if(!s) return "";
     var c = sentColor(s);
-    var ini = esc(String(s).trim().charAt(0).toUpperCase());
-    return '<div class="rcell"><svg class="ring" viewBox="0 0 44 44">'
-      +'<circle cx="22" cy="22" r="18" fill="none" stroke="var(--border-2)" stroke-width="4"/>'
-      +'<circle cx="22" cy="22" r="18" fill="none" stroke="'+c+'" stroke-width="4" stroke-linecap="round" stroke-dasharray="113" stroke-dashoffset="17" transform="rotate(-90 22 22)"/>'
-      +'<text x="22" y="27" text-anchor="middle" font-size="15" font-weight="800" fill="'+c+'">'+ini+'</text></svg>'
-      +'<div class="rl">'+esc(label)+'</div><div class="rv" style="color:'+c+'">'+esc(s)+'</div></div>';
+    return '<div class="spill" style="--sc:'+c+'">'
+      +'<div class="sp-l">'+esc(label)+'</div>'
+      +'<div class="sp-v">'+esc(s)+'</div></div>';
   }
   function cntBar(label, n, c){
     if(!has(n)) return "";
@@ -1651,8 +1673,8 @@ function openGame(title){
   }
   var rv = '<div class="mblock"><div class="mh">Reviews</div><div class="revcard">'
     + '<div class="rrow">'
-    + sentRing("Critics", g.critic_sentiment)
-    + sentRing("Users", g.user_score_sentiment)
+    + sentPill("Critics", g.critic_sentiment)
+    + sentPill("Users", g.user_score_sentiment)
     + '</div>'
     + cntBar("Critic reviews", g.critic_count, "var(--accent)")
     + cntBar("User ratings", g.user_score_count, "var(--accent-2)")
@@ -1764,9 +1786,11 @@ function openGame(title){
   $("sheetbody").scrollTop=0;
   $("sheet").classList.add("on");
   $("scrim").classList.add("on");
+  document.body.classList.add("sheet-open");
   document.body.style.overflow="hidden";
 }
 function closeSheet(){
+  document.body.classList.remove("sheet-open");
   $("sheet").classList.remove("on");
   $("scrim").classList.remove("on");
   document.body.style.overflow="";
@@ -2177,22 +2201,38 @@ function wire(){
     });
   }
 
-  /* swipe-down to close sheet */
-  var sy=null;
-  $("sheet").addEventListener("touchstart", function(e){
-    if($("sheetbody").scrollTop<=0) sy=e.touches[0].clientY; else sy=null;
+  /* swipe-down to close sheet — smooth: direction-lock, transition cut during drag, velocity flick */
+  var sy=null, sx=null, dragging=false, t0=0;
+  var sheetEl=$("sheet"), bodyEl=$("sheetbody");
+  sheetEl.addEventListener("touchstart", function(e){
+    if(bodyEl.scrollTop<=0){ sy=e.touches[0].clientY; sx=e.touches[0].clientX; t0=Date.now(); }
+    else { sy=null; }
+    dragging=false;
   },{passive:true});
-  $("sheet").addEventListener("touchmove", function(e){
+  sheetEl.addEventListener("touchmove", function(e){
     if(sy===null) return;
-    var dy=e.touches[0].clientY-sy;
-    if(dy>0) $("sheet").style.transform="translateY("+dy+"px)";
+    var dy=e.touches[0].clientY-sy, dx=e.touches[0].clientX-sx;
+    if(!dragging){
+      if(Math.abs(dy)>10 && Math.abs(dy)>Math.abs(dx)*1.4){   /* vertical intent only */
+        dragging=true;
+        sheetEl.style.transition="none";                      /* 1:1 finger tracking */
+      } else if(Math.abs(dx)>10){ sy=null; return; }          /* horizontal → let it scroll/scrollbar */
+    }
+    if(dragging){
+      if(dy<0) dy=dy/4;                                       /* rubber-band when pushing up at top */
+      sheetEl.style.transform="translateY("+(dy>0?dy:0)+"px)";
+    }
   },{passive:true});
-  $("sheet").addEventListener("touchend", function(e){
+  sheetEl.addEventListener("touchend", function(e){
     if(sy===null) return;
-    var dy=(e.changedTouches[0].clientY-sy);
-    $("sheet").style.transform="";
-    if(dy>110) closeSheet();
-    sy=null;
+    if(dragging){
+      var dy=e.changedTouches[0].clientY-sy;
+      var vel=dy/Math.max(1,Date.now()-t0);                   /* px per ms */
+      sheetEl.style.transition="";
+      if(dy>120 || vel>0.55) closeSheet();
+      else sheetEl.style.transform="";                        /* spring back */
+    }
+    sy=null; dragging=false;
   });
   document.addEventListener("keydown", function(e){ if(e.key==="Escape"){ $("lightbox").classList.remove("on"); closeSheet(); } });
 }
