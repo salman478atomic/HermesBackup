@@ -611,37 +611,39 @@ body.sheet-open{overflow:hidden}
   border:1px solid var(--border); box-shadow:0 0 0 1px rgba(232,123,10,0.08);position:relative;overflow:hidden;transition:all .2s;
 }
 .bento .b:hover{border-color:rgba(232,123,10,.5);box-shadow:0 0 0 1px rgba(232,123,10,.12),0 8px 24px -14px rgba(232,123,10,.3)}
-/* ── Left-corner wrap accent v2: curved corner join (follows card radius) ── */
-.row,.gcard,.gtile,.bento .b,.kv,.revcard,.shero .cell,.comm .cc,.dlcitem,.tblwrap{position:relative}
+/* ── Left-corner wrap accent v3: mask-free (WebView-safe), curved join via inner radius ── */
+.row,.gcard,.gtile,.bento .b,.kv,.revcard,.shero .cell,.comm .cc,.dlcitem{position:relative}
 .row::before,.gcard::before,.gtile::before,.bento .b::before,.kv::before,.revcard::before,
-.shero .cell::before,.comm .cc::before,.dlcitem::before,.tblwrap::before{
-  content:"";position:absolute;top:0;left:0;width:56%;height:50%;pointer-events:none;z-index:2;
-  border-top:2px solid var(--accent);border-left:2px solid var(--accent);
-  border-top-left-radius:var(--radius-lg);
-  -webkit-mask:linear-gradient(90deg,#000 55%,transparent 98%) top/100% 2px no-repeat,
-               linear-gradient(180deg,#000 55%,transparent 98%) left/2px 100% no-repeat;
-          mask:linear-gradient(90deg,#000 55%,transparent 98%) top/100% 2px no-repeat,
-               linear-gradient(180deg,#000 55%,transparent 98%) left/2px 100% no-repeat;
-  opacity:.7;transition:opacity .25s;
-}
+.shero .cell::before,.comm .cc::before,.dlcitem::before,
 .row::after,.gcard::after,.gtile::after,.bento .b::after,.kv::after,.revcard::after,
-.shero .cell::after,.comm .cc::after,.dlcitem::after,.tblwrap::after{
-  content:"";position:absolute;bottom:0;left:0;width:56%;height:50%;pointer-events:none;z-index:2;
-  border-bottom:2px solid var(--accent);border-left:2px solid var(--accent);
-  border-bottom-left-radius:var(--radius-lg);
-  -webkit-mask:linear-gradient(90deg,#000 55%,transparent 98%) bottom/100% 2px no-repeat,
-               linear-gradient(0deg,#000 55%,transparent 98%) left/2px 100% no-repeat;
-          mask:linear-gradient(90deg,#000 55%,transparent 98%) bottom/100% 2px no-repeat,
-               linear-gradient(0deg,#000 55%,transparent 98%) left/2px 100% no-repeat;
-  opacity:.7;transition:opacity .25s;
+.shero .cell::after,.comm .cc::after,.dlcitem::after{
+  content:"";position:absolute;left:0;width:56%;height:50%;pointer-events:none;z-index:2;opacity:.7;
+  transition:opacity .25s;
+}
+/* بازوی بالا: خط افقی بالای کارت (fade→) + خط عمودی چپ (fade از وسط به بالا) */
+.row::before,.gcard::before,.gtile::before,.bento .b::before,.kv::before,.revcard::before,
+.shero .cell::before,.comm .cc::before,.dlcitem::before{
+  top:0;
+  background:
+    linear-gradient(90deg,var(--accent) 0%,rgba(232,123,10,.55) 50%,rgba(232,123,10,0) 100%) top left/100% 2px no-repeat,
+    linear-gradient(180deg,rgba(232,123,10,0) 0%,rgba(232,123,10,.55) 55%,var(--accent) 100%) top left/2px 100% no-repeat;
+  border-top-left-radius:var(--radius-md);
+}
+/* بازوی پایین: قرینه */
+.row::after,.gcard::after,.gtile::after,.bento .b::after,.kv::after,.revcard::after,
+.shero .cell::after,.comm .cc::after,.dlcitem::after{
+  bottom:0;
+  background:
+    linear-gradient(90deg,var(--accent) 0%,rgba(232,123,10,.55) 50%,rgba(232,123,10,0) 100%) bottom left/100% 2px no-repeat,
+    linear-gradient(0deg,rgba(232,123,10,0) 0%,rgba(232,123,10,.55) 55%,var(--accent) 100%) bottom left/2px 100% no-repeat;
+  border-bottom-left-radius:var(--radius-md);
 }
 .row:hover::before,.gcard:hover::before,.gtile:hover::before,.bento .b:hover::before,
 .kv:hover::before,.revcard:hover::before,.shero .cell:hover::before,.comm .cc:hover::before,
-.dlcitem:hover::before,.tblwrap:hover::before,
+.dlcitem:hover::before,
 .row:hover::after,.gcard:hover::after,.gtile:hover::after,.bento .b:hover::after,
 .kv:hover::after,.revcard:hover::after,.shero .cell:hover::after,.comm .cc:hover::after,
-.dlcitem:hover::after,.tblwrap:hover::after{opacity:1}
-/* gcard/gtile کلاه‌گردترند: شعاع گوشه‌شان xl است */
+.dlcitem:hover::after{opacity:1}
 .gcard::before,.gtile::before{border-top-left-radius:var(--radius-lg)}
 .gcard::after,.gtile::after{border-bottom-left-radius:var(--radius-lg)}
 
