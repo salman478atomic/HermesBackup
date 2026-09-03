@@ -611,16 +611,35 @@ body.sheet-open{overflow:hidden}
   border:1px solid var(--border); box-shadow:0 0 0 1px rgba(232,123,10,0.08);position:relative;overflow:hidden;transition:all .2s;
 }
 .bento .b:hover{border-color:rgba(232,123,10,.5);box-shadow:0 0 0 1px rgba(232,123,10,.12),0 8px 24px -14px rgba(232,123,10,.3)}
-/* ── Corner accent: small copper bracket on card top-left (subtle, partial, consistent) ── */
+/* ── HUD corner brackets: copper L-frames on opposing corners, gaming-HUD style ── */
 .row,.gcard,.gtile,.bento .b,.kv,.revcard,.shero .cell,.comm .cc,.dlcitem,.tblwrap{position:relative}
+.row::before,.gcard::before,.gtile::before,.bento .b::before,.kv::before,.revcard::before,
+.shero .cell::before,.comm .cc::before,.dlcitem::before,.tblwrap::before{
+  content:"";position:absolute;top:-1px;left:-1px;width:14px;height:14px;
+  border-top:2px solid var(--accent);border-left:2px solid var(--accent);
+  border-top-left-radius:var(--radius-md);opacity:.55;pointer-events:none;z-index:2;
+  transition:opacity .25s,width .25s,height .25s;
+}
 .row::after,.gcard::after,.gtile::after,.bento .b::after,.kv::after,.revcard::after,
 .shero .cell::after,.comm .cc::after,.dlcitem::after,.tblwrap::after{
-  content:"";position:absolute;top:0;left:0;width:26px;height:2px;
-  background:linear-gradient(90deg,var(--accent),rgba(232,123,10,0));
-  opacity:.5;pointer-events:none;border-radius:0 2px 2px 0;
+  content:"";position:absolute;bottom:-1px;right:-1px;width:14px;height:14px;
+  border-bottom:2px solid var(--accent);border-right:2px solid var(--accent);
+  border-bottom-right-radius:var(--radius-md);opacity:.55;pointer-events:none;z-index:2;
+  transition:opacity .25s,width .25s,height .25s;
 }
+.row:hover::before,.gcard:hover::before,.gtile:hover::before,.bento .b:hover::before,
+.kv:hover::before,.revcard:hover::before,.shero .cell:hover::before,.comm .cc:hover::before,
+.dlcitem:hover::before,.tblwrap:hover::before,
 .row:hover::after,.gcard:hover::after,.gtile:hover::after,.bento .b:hover::after,
-.dlcitem:hover::after{opacity:1;width:44px;transition:all .25s}
+.kv:hover::after,.revcard:hover::after,.shero .cell:hover::after,.comm .cc:hover::after,
+.dlcitem:hover::after,.tblwrap:hover::after{
+  opacity:1;width:22px;height:22px;
+  box-shadow:0 0 8px rgba(232,123,10,.35);
+}
+.gcard::before,.gtile::before{border-top-left-radius:var(--radius-lg)}
+.gcard::after,.gtile::after{border-bottom-right-radius:var(--radius-lg)}
+
+
 
 
 
