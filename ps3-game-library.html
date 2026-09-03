@@ -506,9 +506,10 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
 
 .mhero .cap::after{content:"";display:block;width:44px;height:3px;border-radius:9px;margin-top:10px;background:linear-gradient(90deg,var(--accent),transparent);box-shadow:0 0 12px rgba(232,123,10,.5)}
 .mhero .badges{margin-top:9px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.mbar{display:flex;justify-content:flex-end;padding:2px 2px 0}
 .mclose{
-  position:absolute;top:11px;right:14px;width:34px;height:34px;border-radius:var(--radius-lg);
-  display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.72);box-shadow:0 2px 10px rgba(0,0,0,.5);
+  width:34px;height:34px;border-radius:var(--radius-lg);
+  display:flex;align-items:center;justify-content:center;background:var(--surface-2);
   border:1px solid var(--border-2);
 }
 .mclose svg{width:14px;height:14px;stroke:var(--text);stroke-width:2.6;fill:none}
@@ -548,6 +549,20 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
   display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);border:1px solid var(--border-2);
 }
 #lightbox .lb-close svg{width:16px;height:16px;stroke:var(--text);stroke-width:2.6;fill:none}
+
+/* ---- Reviews card v2.5.8: sentiment rings + count bars ---- */
+.revcard{padding:14px;border-radius:var(--radius-md);background:var(--surface);border:1px solid var(--border)}
+.rrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.rcell{display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px}
+.ring{width:64px;height:64px}
+.ring text{font-family:inherit}
+.rcell .rl{font-size:9.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3)}
+.rcell .rv{font-size:12.5px;font-weight:700;text-transform:capitalize}
+.rbar{margin-top:9px}
+.rbar .rb-top{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--text-2);font-weight:600}
+.rbar .rb-top b{color:var(--text);font-variant-numeric:tabular-nums;font-size:13px}
+.rbar .rb-tr{margin-top:5px;height:7px;border-radius:9px;background:var(--border);overflow:hidden}
+.rbar .rb-tr i{display:block;height:100%;border-radius:9px;opacity:.9;transition:width .8s cubic-bezier(.22,1,.36,1)}
 
 /* ---- Modal extras v2.2.0: screenshots, stores, community, alt names ---- */
 .shots{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:6px;-webkit-overflow-scrolling:touch}
@@ -870,7 +885,7 @@ tbody td.tt{color:var(--text);font-weight:600;white-space:normal;min-width:150px
 
 var GH_JSON_URL = "https://api.github.com/repos/salman478atomic/HermesBackup/contents/ps3_games.json";
 var GH_TOKEN    = "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";           /* placeholder token */
-var APP_VERSION = "2.5.3";
+var APP_VERSION = "2.5.8";
 var PAGE_SIZE   = 100;
 
 /* ---------- state ---------- */
@@ -1590,12 +1605,10 @@ function openGame(title){
   var h="";
 
   /* header */
-  h+='<div class="mhero">'+
+  h+='<div class="mbar"><button class="mclose" onclick="closeSheet()" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></button></div>'+
+     '<div class="mhero">'+
      '<img class="mimg" src="'+esc_attr(coverFor(g.title, g.background_image))+'" alt=""'+(String(g.background_image||"").indexOf("http")===0?' data-lb="1" data-cap="'+esc_attr(g.title)+'"':'')+'>'+
-     '<button class="mclose" onclick="closeSheet()" aria-label="Close"><svg viewBox="0 0 24 24"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></button>'+
      '<div class="cap"><h2>'+esc(g.title)+'</h2><div class="badges">'+
-       (has(g.critic_score)?scoreBadge(g.critic_score):"")+
-       (has(g.user_score)?'<span class="score" style="--sc:'+scoreVar(g.user_score)+'">'+esc(fmt(g.user_score))+'</span>':"")+
        (g.is_dlc?'<span class="dlcflag">DLC</span>':"")+
        (has(g.year)?'<span class="pill">'+esc(g.year)+'</span>':"")+
      '</div></div></div>';
@@ -1610,13 +1623,41 @@ function openGame(title){
   /* status */
   h+='<div class="mblock"><div class="mh">Your status</div>'+statusBtns(g)+'</div>';
 
-  /* reviews */
-  h+=kvBlock("Reviews",[
-    kvRow(LABEL.critic_sentiment,g.critic_sentiment),
-    kvRow(LABEL.critic_count,has(g.critic_count)?Number(g.critic_count).toLocaleString():null),
-    kvRow(LABEL.user_score_sentiment,g.user_score_sentiment),
-    kvRow(LABEL.user_score_count,has(g.user_score_count)?Number(g.user_score_count).toLocaleString():null)
-  ]);
+  /* reviews — visual: sentiment donuts + review-count bars (replaces dry text rows) */
+  var sentColor = function(s){
+    s = String(s||"").toLowerCase();
+    if(s.indexOf("exceptional")>-1||s.indexOf("universal")>-1) return "var(--sc-elite)";
+    if(s.indexOf("favorable")>-1||s.indexOf("recommended")>-1||s.indexOf("very positive")>-1||s.indexOf("positive")>-1) return "var(--sc-great)";
+    if(s.indexOf("mixed")>-1||s.indexOf("average")>-1) return "var(--sc-good)";
+    if(s.indexOf("generally")>-1) return "var(--sc-great)";
+    return "var(--sc-mixed)";
+  };
+  function sentRing(label, s){
+    if(!s) return "";
+    var c = sentColor(s);
+    var ini = esc(String(s).trim().charAt(0).toUpperCase());
+    return '<div class="rcell"><svg class="ring" viewBox="0 0 44 44">'
+      +'<circle cx="22" cy="22" r="18" fill="none" stroke="var(--border-2)" stroke-width="4"/>'
+      +'<circle cx="22" cy="22" r="18" fill="none" stroke="'+c+'" stroke-width="4" stroke-linecap="round" stroke-dasharray="113" stroke-dashoffset="17" transform="rotate(-90 22 22)"/>'
+      +'<text x="22" y="27" text-anchor="middle" font-size="15" font-weight="800" fill="'+c+'">'+ini+'</text></svg>'
+      +'<div class="rl">'+esc(label)+'</div><div class="rv" style="color:'+c+'">'+esc(s)+'</div></div>';
+  }
+  function cntBar(label, n, c){
+    if(!has(n)) return "";
+    n = Number(n);
+    var w = Math.max(4, Math.min(100, Math.round(Math.log(n+1)/Math.log(5000)*100)));
+    return '<div class="rbar"><div class="rb-top"><span>'+esc(label)+'</span><b>'+n.toLocaleString()+'</b></div>'
+      +'<div class="rb-tr"><i style="width:'+w+'%;background:'+c+'"></i></div></div>';
+  }
+  var rv = '<div class="mblock"><div class="mh">Reviews</div><div class="revcard">'
+    + '<div class="rrow">'
+    + sentRing("Critics", g.critic_sentiment)
+    + sentRing("Users", g.user_score_sentiment)
+    + '</div>'
+    + cntBar("Critic reviews", g.critic_count, "var(--accent)")
+    + cntBar("User ratings", g.user_score_count, "var(--accent-2)")
+    + '</div></div>';
+  h += rv;
 
   /* overview */
   h+=kvBlock("Overview",[
