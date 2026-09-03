@@ -611,28 +611,32 @@ body.sheet-open{overflow:hidden}
   border:1px solid var(--border); box-shadow:0 0 0 1px rgba(232,123,10,0.08);position:relative;overflow:hidden;transition:all .2s;
 }
 .bento .b:hover{border-color:rgba(232,123,10,.5);box-shadow:0 0 0 1px rgba(232,123,10,.12),0 8px 24px -14px rgba(232,123,10,.3)}
-/* ── Left-edge accent: vertical copper lines ON the left side, growing from top&bottom corners toward middle, fading out ── */
+/* ── Left-corner wrap accent: from left-edge middle, around the corner, fading toward top/bottom-edge middle ── */
 .row,.gcard,.gtile,.bento .b,.kv,.revcard,.shero .cell,.comm .cc,.dlcitem,.tblwrap{position:relative}
 .row::before,.gcard::before,.gtile::before,.bento .b::before,.kv::before,.revcard::before,
-.shero .cell::before,.comm .cc::before,.dlcitem::before,.tblwrap::before,
-.row::after,.gcard::after,.gtile::after,.bento .b::after,.kv::after,.revcard::after,
-.shero .cell::after,.comm .cc::after,.dlcitem::after,.tblwrap::after{
-  content:"";position:absolute;left:0;top:0;width:3px;height:34%;pointer-events:none;z-index:2;
-  background:linear-gradient(180deg,var(--accent) 0%,rgba(232,123,10,.5) 55%,rgba(232,123,10,0) 100%);
-  opacity:.75;border-radius:0 2px 2px 0;
-  transition:opacity .25s,height .25s;
+.shero .cell::before,.comm .cc::before,.dlcitem::before,.tblwrap::before{
+  content:"";position:absolute;top:0;left:0;width:56%;height:50%;pointer-events:none;z-index:2;
+  background:
+    linear-gradient(90deg,var(--accent) 0%,rgba(232,123,10,.55) 45%,rgba(232,123,10,0) 100%) top left / 100% 2px no-repeat,
+    linear-gradient(0deg,var(--accent),var(--accent)) top left / 2px 100% no-repeat;
+  opacity:.7;transition:opacity .25s;
 }
 .row::after,.gcard::after,.gtile::after,.bento .b::after,.kv::after,.revcard::after,
 .shero .cell::after,.comm .cc::after,.dlcitem::after,.tblwrap::after{
-  top:auto;bottom:0;
-  background:linear-gradient(0deg,var(--accent) 0%,rgba(232,123,10,.5) 55%,rgba(232,123,10,0) 100%);
+  content:"";position:absolute;bottom:0;left:0;width:56%;height:50%;pointer-events:none;z-index:2;
+  background:
+    linear-gradient(90deg,var(--accent) 0%,rgba(232,123,10,.55) 45%,rgba(232,123,10,0) 100%) bottom left / 100% 2px no-repeat,
+    linear-gradient(180deg,var(--accent),var(--accent)) bottom left / 2px 100% no-repeat;
+  opacity:.7;transition:opacity .25s;
 }
 .row:hover::before,.gcard:hover::before,.gtile:hover::before,.bento .b:hover::before,
 .kv:hover::before,.revcard:hover::before,.shero .cell:hover::before,.comm .cc:hover::before,
 .dlcitem:hover::before,.tblwrap:hover::before,
 .row:hover::after,.gcard:hover::after,.gtile:hover::after,.bento .b:hover::after,
 .kv:hover::after,.revcard:hover::after,.shero .cell:hover::after,.comm .cc:hover::after,
-.dlcitem:hover::after,.tblwrap:hover::after{opacity:1;height:44%}
+.dlcitem:hover::after,.tblwrap:hover::after{opacity:1}
+
+
 
 
 
