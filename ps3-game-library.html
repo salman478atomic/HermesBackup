@@ -611,32 +611,34 @@ body.sheet-open{overflow:hidden}
   border:1px solid var(--border); box-shadow:0 0 0 1px rgba(232,123,10,0.08);position:relative;overflow:hidden;transition:all .2s;
 }
 .bento .b:hover{border-color:rgba(232,123,10,.5);box-shadow:0 0 0 1px rgba(232,123,10,.12),0 8px 24px -14px rgba(232,123,10,.3)}
-/* ── Left-corner wrap accent v3: mask-free (WebView-safe), curved join via inner radius ── */
+/* ── Left-edge crescent accent v4: SVG curve follows the real card arc (no square hook) ── */
 .row,.gcard,.gtile,.bento .b,.kv,.revcard,.shero .cell,.comm .cc,.dlcitem{position:relative}
 .row::before,.gcard::before,.gtile::before,.bento .b::before,.kv::before,.revcard::before,
 .shero .cell::before,.comm .cc::before,.dlcitem::before,
 .row::after,.gcard::after,.gtile::after,.bento .b::after,.kv::after,.revcard::after,
 .shero .cell::after,.comm .cc::after,.dlcitem::after{
-  content:"";position:absolute;left:0;width:56%;height:50%;pointer-events:none;z-index:2;opacity:.7;
+  content:"";position:absolute;top:0;bottom:0;left:0;width:40px;pointer-events:none;z-index:2;opacity:.7;
   transition:opacity .25s;
 }
-/* بازوی بالا: خط افقی بالای کارت (fade→) + خط عمودی چپ (fade از وسط به بالا) */
+/* نیمه بالا: کمان SVG هم‌مرکز با پیچ کارت (r=20) + خط افقی محوشونده تا وسط ضلع */
 .row::before,.gcard::before,.gtile::before,.bento .b::before,.kv::before,.revcard::before,
 .shero .cell::before,.comm .cc::before,.dlcitem::before{
-  top:0;
-  background:
-    linear-gradient(90deg,var(--accent) 0%,rgba(232,123,10,.55) 50%,rgba(232,123,10,0) 100%) top left/100% 2px no-repeat,
-    linear-gradient(180deg,var(--accent) 0%,var(--accent) 100%) top left/2px 100% no-repeat;
-  border-top-left-radius:var(--radius-md);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23e87b0a' stop-opacity='0'/%3E%3Cstop offset='.45' stop-color='%23e87b0a' stop-opacity='.55'/%3E%3Cstop offset='1' stop-color='%23e87b0a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 40 L0 20 A20 20 0 0 1 20 0 L40 0' fill='none' stroke='url(%23g)' stroke-width='2'/%3E%3C/svg%3E"),
+    linear-gradient(90deg,rgba(232,123,10,.8) 0%,rgba(232,123,10,0) 100%);
+  background-repeat:no-repeat,no-repeat;
+  background-size:40px 40px,calc(100% - 40px) 2px;
+  background-position:top left,top 9px left 40px;
 }
-/* بازوی پایین: قرینه */
+/* نیمه پایین: قرینهی نیمه بالا */
 .row::after,.gcard::after,.gtile::after,.bento .b::after,.kv::after,.revcard::after,
 .shero .cell::after,.comm .cc::after,.dlcitem::after{
-  bottom:0;
-  background:
-    linear-gradient(90deg,var(--accent) 0%,rgba(232,123,10,.55) 50%,rgba(232,123,10,0) 100%) bottom left/100% 2px no-repeat,
-    linear-gradient(0deg,var(--accent) 0%,var(--accent) 100%) bottom left/2px 100% no-repeat;
-  border-bottom-left-radius:var(--radius-md);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e87b0a' stop-opacity='0'/%3E%3Cstop offset='.45' stop-color='%23e87b0a' stop-opacity='.55'/%3E%3Cstop offset='1' stop-color='%23e87b0a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 0 L0 20 A20 20 0 0 0 20 40 L40 40' fill='none' stroke='url(%23g)' stroke-width='2'/%3E%3C/svg%3E"),
+    linear-gradient(90deg,rgba(232,123,10,.8) 0%,rgba(232,123,10,0) 100%);
+  background-repeat:no-repeat,no-repeat;
+  background-size:40px 40px,calc(100% - 40px) 2px;
+  background-position:bottom left,bottom 9px left 40px;
 }
 .row:hover::before,.gcard:hover::before,.gtile:hover::before,.bento .b:hover::before,
 .kv:hover::before,.revcard:hover::before,.shero .cell:hover::before,.comm .cc:hover::before,
@@ -644,16 +646,7 @@ body.sheet-open{overflow:hidden}
 .row:hover::after,.gcard:hover::after,.gtile:hover::after,.bento .b:hover::after,
 .kv:hover::after,.revcard:hover::after,.shero .cell:hover::after,.comm .cc:hover::after,
 .dlcitem:hover::after{opacity:1}
-.gcard::before,.gtile::before{border-top-left-radius:var(--radius-lg)}
-.gcard::after,.gtile::after{border-bottom-left-radius:var(--radius-lg)}
-
-
-
-
-
-
-
-
+.gcard::before,.gcard::after,.gtile::before,.gtile::after{background-size:40px 40px,calc(100% - 40px) 2px}
 
 .bento .b.w2{grid-column:span 2}
 .bento .b .v{font-size:25px;font-weight:700;letter-spacing:-.05em;line-height:1.05;color:var(--text)}
@@ -936,7 +929,7 @@ body.sheet-open{overflow:hidden}
 
 var GH_JSON_URL = "https://api.github.com/repos/salman478atomic/HermesBackup/contents/ps3_games.json";
 var GH_TOKEN    = "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";           /* placeholder token */
-var APP_VERSION = "2.5.9";
+var APP_VERSION = "2.5.9k";
 var PAGE_SIZE   = 100;
 
 /* ---------- state ---------- */
