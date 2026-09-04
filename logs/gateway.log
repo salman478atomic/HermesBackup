@@ -659,3 +659,58 @@
 2026-09-03 21:44:00,826 INFO gateway.platforms.base: [Telegram] Sending response (187 chars) to 2035219030
 2026-09-03 22:45:43,240 INFO gateway.run: Agent cache idle-TTL evict: session=agent:main:telegram:dm:2035219030 (idle=3703s)
 2026-09-03 22:45:43,244 INFO gateway.run: Agent cache idle sweep: evicted 1 agent(s)
+2026-09-04 03:51:21,327 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (9 chars)
+2026-09-04 03:51:21,345 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='ادامه بده' reply_to_id=None reply_to_text=''
+2026-09-04 03:54:34,003 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=192.7s api_calls=1 response=258 chars
+2026-09-04 03:54:34,004 INFO gateway.run: Transient agent failure in session 20260903_194222_94cc7872 — persisting user message so conversation context is preserved on retry.
+2026-09-04 03:54:34,005 INFO gateway.run: Skipping duplicate user turn (message_id=3237) in session 20260903_194222_94cc7872
+2026-09-04 03:54:34,056 INFO gateway.platforms.base: [Telegram] Sending response (84 chars) to 2035219030
+2026-09-04 03:57:36,831 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (15 chars)
+2026-09-04 03:57:36,857 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='چیشد؟ ادامه بده' reply_to_id=None reply_to_text=''
+2026-09-04 04:00:50,066 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=193.2s api_calls=1 response=258 chars
+2026-09-04 04:00:50,067 INFO gateway.run: Transient agent failure in session 20260903_194222_94cc7872 — persisting user message so conversation context is preserved on retry.
+2026-09-04 04:00:50,070 INFO gateway.run: Skipping duplicate user turn (message_id=3240) in session 20260903_194222_94cc7872
+2026-09-04 04:00:50,137 INFO gateway.platforms.base: [Telegram] Sending response (84 chars) to 2035219030
+2026-09-04 04:01:03,626 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (9 chars)
+2026-09-04 04:01:03,658 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='ادامه بده' reply_to_id=None reply_to_text=''
+2026-09-04 04:17:50,047 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=1006.4s api_calls=13 response=55 chars
+2026-09-04 04:17:50,049 INFO gateway.run: Transient agent failure in session 20260903_194222_94cc7872 — persisting user message so conversation context is preserved on retry.
+2026-09-04 04:17:50,051 INFO gateway.run: Skipping duplicate user turn (message_id=3243) in session 20260903_194222_94cc7872
+2026-09-04 04:17:50,112 INFO gateway.platforms.base: [Telegram] Sending response (120 chars) to 2035219030
+2026-09-04 04:26:45,527 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (3 chars)
+2026-09-04 04:26:45,542 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='تست' reply_to_id=None reply_to_text=''
+2026-09-04 04:26:55,089 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=268 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-04 04:26:55,089 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=9.5s api_calls=1 response=268 chars
+2026-09-04 04:26:55,139 INFO gateway.platforms.base: [Telegram] Sending response (268 chars) to 2035219030
+2026-09-04 04:27:18,267 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (11 chars)
+2026-09-04 04:27:18,285 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='فایل رو بده' reply_to_id=None reply_to_text=''
+2026-09-04 04:27:22,543 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=56 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-04 04:27:22,543 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=4.3s api_calls=1 response=56 chars
+2026-09-04 04:27:22,602 INFO gateway.platforms.base: [Telegram] Delivering 1 non-image MEDIA attachment(s)
+2026-09-04 05:27:24,667 INFO gateway.run: Agent cache idle-TTL evict: session=agent:main:telegram:dm:2035219030 (idle=3602s)
+2026-09-04 05:27:24,668 INFO gateway.run: Agent cache idle sweep: evicted 1 agent(s)
+2026-09-04 11:25:21,676 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Cached user document at /data/.hermes/cache/documents/doc_1079836a6d56_018.html (application/octet-stream)
+2026-09-04 11:25:21,727 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='این از این به بعد میشه ورژن اصلی' reply_to_id=None reply_to_text=''
+2026-09-04 11:26:05,526 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=37 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-04 11:26:05,527 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=43.8s api_calls=1 response=37 chars
+2026-09-04 11:26:05,673 INFO gateway.platforms.base: [Telegram] Sending response (37 chars) to 2035219030
+2026-09-04 11:26:15,258 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (8 chars)
+2026-09-04 11:26:15,276 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='مشکل چیه' reply_to_id=None reply_to_text=''
+2026-09-04 11:27:11,652 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=37 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-04 11:27:11,655 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=56.4s api_calls=1 response=37 chars
+2026-09-04 11:27:11,719 INFO gateway.platforms.base: [Telegram] Sending response (37 chars) to 2035219030
+2026-09-04 11:31:41,963 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (3 chars)
+2026-09-04 11:31:41,982 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='تست' reply_to_id=None reply_to_text=''
+2026-09-04 11:32:40,066 WARNING gateway.run: Normal final-send NOT suppressed despite active stream consumer for session agent:main:telegram:dm:2035219030: streamed=False previewed=False content_delivered=False transformed=False final_len=37 — possible duplicate send (see wecom ack-timeout RCA).
+2026-09-04 11:32:40,066 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=58.1s api_calls=1 response=37 chars
+2026-09-04 11:32:40,172 INFO gateway.platforms.base: [Telegram] Sending response (37 chars) to 2035219030
+2026-09-04 11:49:36,022 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (3 chars)
+2026-09-04 11:49:36,047 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='تست' reply_to_id=None reply_to_text=''
+2026-09-04 11:50:16,271 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=40.2s api_calls=1 response=270 chars
+2026-09-04 11:50:16,272 INFO gateway.run: Skipping transcript persistence for context-overflow failure in session 20260903_194222_94cc7872 to prevent session growth loop.
+2026-09-04 11:50:16,737 INFO gateway.platforms.base: [Telegram] Sending response (120 chars) to 2035219030
+2026-09-04 11:59:04,051 INFO hermes_plugins.telegram_platform.adapter: [Telegram] Flushing text batch agent:main:telegram:dm:2035219030 (5 chars)
+2026-09-04 11:59:04,085 INFO gateway.run: inbound message: platform=telegram user=S chat=2035219030 msg='چیشد؟' reply_to_id=None reply_to_text=''
+2026-09-04 12:00:31,903 INFO gateway.run: response ready: platform=telegram chat=2035219030 time=87.8s api_calls=1 response=270 chars
+2026-09-04 12:00:31,920 INFO gateway.run: Skipping transcript persistence for context-overflow failure in session 20260903_194222_94cc7872 to prevent session growth loop.
+2026-09-04 12:00:32,072 INFO gateway.platforms.base: [Telegram] Sending response (120 chars) to 2035219030

@@ -8,7 +8,7 @@ User runs Hermes on Railway (9router → Telegram bot). Railway trial expired ~A
 §
 Volume-wipe incident: Kaggle download filled the Railway volume (agent misjudged space); user deleted volume → everything after Aug 27 backup lost. LESSON: check df -h before big downloads; /data volume is only ~434MB while / (overlay) has ~1TB — download/process in /tmp, keep only small results in /data.
 §
-partial copper outline (FINAL v2.5.9j): left edge = SOLID continuous line top→bottom (both halves solid, meet at middle, no gap), horiz arms fade copper→transparent toward top/bottom-edge middle (56%). radius-md/lg join curve, opacity .7→1 hover, 10 card types, tblwrap excluded. S explicitly wants NO fade anywhere on the left side itself.
+partial copper outline (FINAL v2.5.9k): left edge = SOLID continuous line top→bottom (both halves solid, meet at middle, no gap), horiz arms fade copper→transparent toward top/bottom-edge middle (56%). radius-md/lg join curve, opacity .7→1 hover, 10 card types, tblwrap excluded. S explicitly wants NO fade anywhere on the left side itself.
 §
 Backup: 12h cron → ~/.hermes/scripts/hermes_backup.sh. K-Dense sci skills installed (4, at skills/science/): polars, EDA, database-lookup, scientific-visualization. Source: github.com/K-Dense-AI/scientific-agent-skills (163 skills, 30MB). Install more on demand — no full install (prompt bloat + 1GB RAM).
 §
