@@ -1,3 +1,6 @@
+model:
+  default: FableHermes
+  provider: openai-api
 terminal:
   backend: local
   cwd: /data/workspace
@@ -8,12 +11,10 @@ compression:
 command_allowlist:
   - script execution via -e/-c flag
   - execute_code
-  - script execution via heredoc
 onboarding:
   seen:
     profile_build_offered: true
-    busy_input_prompt: true
-_config_version: 39
+_config_version: 40
 platforms:
   telegram:
     enabled: true
